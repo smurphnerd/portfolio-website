@@ -3,9 +3,9 @@ import NavigationContext from "../contexts/NavigationContext";
 import TransitionContext from "../contexts/TransitionContext";
 import Landing from "./Landing";
 import Navbar from "../components/Navbar";
-import { act } from "react-dom/test-utils";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-const MainPage = () => {
+const MainPage: React.FC = () => {
   const [activePage, setActivePage] = useState<JSX.Element | null>(null);
   const [isTransitioning, setIsTransitioning] = useState<Boolean>(false);
 

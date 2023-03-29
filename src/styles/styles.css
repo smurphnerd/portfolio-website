@@ -12,6 +12,8 @@
   --code-font: "Consolas, 'Courier New', monospace";
 
   --nav-width: 450px;
+
+  --transition-default: opacity 0.05s ease-in-out, transform 0.05s ease-in;
 }
 
 body {
@@ -31,13 +33,7 @@ body {
   justify-content: center;
   width: var(--nav-width);
   z-index: 1;
-}
-
-.nav__logo {
-  width: 35px;
-  position: absolute;
-  left: 45px;
-  top: 45px;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .nav__links {
@@ -66,8 +62,15 @@ body {
   color: var(--link-selected) !important;
 }
 
+.nav__logo {
+  width: 35px;
+}
+
 .nav__logo-container {
   cursor: pointer;
+  position: absolute;
+  left: 45px;
+  top: 45px;
 }
 
 .nav__logo * {
@@ -85,13 +88,22 @@ body {
 
   .nav {
     display: flex;
+    top: 0;
     width: 100%;
     height: 100%;
     justify-content: center;
   }
 
+  .nav__logo-container {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    left: auto;
+    top: auto;
+  }
+
   .nav__logo {
-    display: none;
+    width: 25px;
   }
 
   .nav__button {
@@ -124,6 +136,8 @@ body {
 .html-tag__container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .html-tag__item {
@@ -132,12 +146,12 @@ body {
 }
 
 .html-tag__open {
-  margin: 0 0 2rem 2rem;
+  margin: 2rem 0 2rem 2rem;
   align-self: flex-start;
 }
 
 .html-tag__close {
-  margin: 2rem 2rem 0 0;
+  margin: 2rem 2rem 2rem 0;
   align-self: flex-end;
 }
 
@@ -166,20 +180,178 @@ body {
 }
 
 .landing__title {
-  font-size: 45px;
+  font-size: 44px;
   margin: 0 2rem;
   font-weight: 400;
 }
 
 @media (max-width: 700px) {
   .landing__title {
+    font-size: 34px;
+  }
+  .nav__links > li {
     font-size: 35px;
   }
 }
 
+.projects__section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects__container {
+  background-color: var(--darkened-bg);
+  width: 90%;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow-y: scroll;
+}
+
+.projects__content {
+  padding: 40px;
+}
+
+@media (max-width: 1200px) {
+  .projects__container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .projects__content {
+    padding-top: 80px;
+  }
+}
+
+.projects__title {
+  font-weight: 400;
+  font-size: 44px;
+  margin: 0;
+  padding-bottom: 40px;
+  border-bottom: var(--accent-light) 1px solid;
+}
+
+.project-card__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  border-bottom: var(--accent-light) 1px solid;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.project-card__container:hover {
+  transform: translateX(5px);
+}
+
+.project-card__main-content {
+  display: flex;
+  align-items: center;
+}
+
+.project-card__thumbnail {
+  width: 108px;
+}
+
+.project-card__details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 36px;
+  justify-content: space-between;
+}
+
+.project-card__name {
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0;
+}
+
+.project-card__client {
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.project-card__language-icons {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.project-card__language-icon {
+  height: 35px;
+}
+
+.project-card__date {
+  text-align: end;
+  color: var(--link-selected);
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  align-self: center;
+}
+
+@media (max-width: 700px) {
+  .project-card__thumbnail {
+    width: 80px;
+  }
+
+  .project-card__container * {
+    font-size: 16px;
+  }
+
+  .project-card__container {
+    flex-direction: column;
+  }
+
+  .project-card__details {
+    flex-direction: row;
+    margin-left: 10px;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .project-card__date {
+    padding-top: 1rem;
+    align-self: auto;
+  }
+}
+
+.blog__section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog__section > h1 {
+  font-size: 44px;
+  font-weight: 400;
+}
+
+.inspiration__section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inspiration__section > h1 {
+  font-size: 44px;
+  font-weight: 400;
+}
+
 .active-page {
   opacity: 1;
-  transition: opacity 0.05s ease-in-out, transform 0.05s ease-in;
+  transition: var(--transition-default);
   transform: translateY(5px);
   height: 100%;
 }
@@ -191,4 +363,12 @@ body {
 .fade-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+.background {
+  z-index: -99;
+}
+
+.hidden {
+  display: none;
 }

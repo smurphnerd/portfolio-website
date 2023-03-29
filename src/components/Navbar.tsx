@@ -1,33 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
+import { GrClose, GrMenu } from "react-icons/gr";
 import { ReactComponent as SmLogo } from "../assets/sm-logo.svg";
-import { GrMenu, GrClose } from "react-icons/gr";
-import "../styles/styles.css";
-import HtmlTags from "./HtmlTags";
 import NavigationContext from "../contexts/NavigationContext";
+import TransitionContext from "../contexts/TransitionContext";
+import Blog from "../pages/Blog";
+import Inspiration from "../pages/Inspiration";
 import Landing from "../pages/Landing";
 import Projects from "../pages/Projects";
-import Inspiration from "../pages/Inspiration";
-import Blog from "../pages/Blog";
-import TransitionContext from "../contexts/TransitionContext";
+import "../styles/styles.css";
+import HtmlTags from "./HtmlTags";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const { setActivePage } = useContext(NavigationContext);
   const { setIsTransitioning } = useContext(TransitionContext);
 
   const [navbarOpen, setNavbarOpen] = useState<Boolean>(false);
-  const [windowWidth, setwindowWidth] = useState<number>(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [activeLink, setActiveLink] = useState<string | null>(null);
-
-  useEffect(() => {
-    const nav: HTMLElement | null = document.querySelector(".nav");
-    console.log("test");
-    if (nav) {
-      navbarOpen ? (nav.style.display = "flex") : (nav.style.display = "none");
-    }
-  }, [navbarOpen]);
+  const [navbarBackground, setNavbarBackground] = useState<Boolean>(false);
 
   const handleResize = () => {
-    setwindowWidth(window.innerWidth);
+    setWindowWidth(window.innerWidth);
   };
 
   useEffect(() => {
@@ -38,16 +32,27 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const nav: HTMLElement | null = document.querySelector(".nav");
-    if (nav) {
-      if (windowWidth <= 1200) {
-        nav.style.display = "none";
-      } else {
-        nav.style.display = "flex";
-        setNavbarOpen(false);
-      }
+    if (windowWidth > 1200) {
+      setNavbarOpen(false);
+      console.log("closed");
     }
   }, [windowWidth]);
+
+  const toggleNavbar = () => {
+    setNavbarOpen(!navbarOpen);
+  };
+
+  useEffect(() => {
+    if (navbarOpen) {
+      setNavbarBackground(false);
+      console.log("foreground");
+    } else {
+      setTimeout(() => {
+        setNavbarBackground(true);
+        console.log("background");
+      }, 300);
+    }
+  }, [navbarOpen]);
 
   const handleNavigation = (activeLink: string | null, page: JSX.Element) => {
     setActiveLink(activeLink);
@@ -65,14 +70,15 @@ const Navbar = () => {
 
   return (
     <>
-      <button
-        className="nav__button"
-        onClick={() => setNavbarOpen(!navbarOpen)}
-      >
+      <button className="nav__button" onClick={toggleNavbar}>
         {!navbarOpen && <GrMenu />}
         {navbarOpen && <GrClose />}
       </button>
-      <nav className="nav">
+      <nav
+        className={`nav ${
+          navbarOpen ? "fade-in" : windowWidth <= 1200 ? "fade-out" : ""
+        } ${navbarBackground ? (windowWidth <= 1200 ? "background" : "") : ""}`}
+      >
         <span
           className="nav__logo-container"
           onClick={() => handleNavigation(null, <Landing />)}
@@ -93,6 +99,7 @@ const Navbar = () => {
               >
                 PROJECTS
               </li>
+
               <li
                 className={
                   activeLink === "inspiration"
