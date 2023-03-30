@@ -1,0 +1,137 @@
+@import "../index.scss";
+
+html {
+  height: 100%;
+}
+
+body {
+  padding-left: $nav-width;
+}
+
+#root {
+  height: 100%;
+}
+
+.Navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: $darkened-bg;
+  height: 100%;
+  justify-content: center;
+  width: $nav-width;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 0;
+  gap: 15px;
+
+  li {
+    list-style: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    color: $body-quiet-color;
+    font-size: 50px;
+    font-weight: 400;
+  }
+}
+
+.link___inactive {
+  color: $body-quiet-color;
+  &:hover {
+    color: $link-hover-color;
+    transform: translateX(5px);
+  }
+}
+
+.link___active {
+  color: $link-selected !important;
+}
+
+.logo {
+  width: 35px;
+
+  * {
+    fill: $body-fg !important;
+  }
+}
+
+.logoContainer {
+  cursor: pointer;
+  position: absolute;
+  left: 45px;
+  top: 45px;
+}
+
+.toggleButton {
+  display: none;
+}
+
+@media (max-width: $hiddenNavbarWidth) {
+  body {
+    padding-left: 0;
+  }
+
+  .Navbar {
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .logoContainer {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    left: auto;
+    top: auto;
+  }
+
+  .logo {
+    width: 25px;
+  }
+
+  .toggleButton {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin: 2rem 0 0 2rem;
+    cursor: pointer;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: none;
+    z-index: 2;
+
+    * {
+      stroke: $body-quiet-color;
+    }
+
+    svg {
+      font-size: 32px;
+    }
+
+    &:hover {
+      * {
+        stroke: $link-hover-color;
+      }
+    }
+  }
+}
+
+@media (max-width: $phoneWidth) {
+  .links {
+    li {
+      font-size: 35px;
+    }
+  }
+}

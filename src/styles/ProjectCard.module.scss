@@ -1,0 +1,88 @@
+@import "../index.scss";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  border-bottom: $accent-light 1px solid;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateX(5px);
+  }
+}
+
+.mainContent {
+  display: flex;
+  align-items: center;
+}
+
+.thumbnail {
+  width: 108px;
+}
+
+.projectDetails {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 36px;
+  justify-content: space-between;
+}
+
+.projectName {
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0;
+}
+
+.projectClient {
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.languageIcons {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.languageIcon {
+  height: 35px;
+}
+
+.projectDate {
+  text-align: end;
+  color: $link-selected;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  align-self: center;
+}
+
+@media (max-width: $phoneWidth) {
+  .thumbnail {
+    width: 80px;
+  }
+
+  .container {
+    flex-direction: column;
+
+    * {
+      font-size: 16px;
+    }
+  }
+
+  .projectDetails {
+    flex-direction: row;
+    margin-left: 10px;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .projectDate {
+    padding-top: 1rem;
+    align-self: auto;
+  }
+}

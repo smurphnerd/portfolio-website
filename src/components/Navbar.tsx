@@ -1,24 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GrClose, GrMenu } from "react-icons/gr";
+import { Link, useLocation } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import { ReactComponent as SmLogo } from "../assets/sm-logo.svg";
-import NavigationContext from "../contexts/NavigationContext";
-import TransitionContext from "../contexts/TransitionContext";
-import Blog from "../pages/Blog";
-import Inspiration from "../pages/Inspiration";
-import Landing from "../pages/Landing";
-import Projects from "../pages/Projects";
-import "../styles/styles.css";
+import S from "../styles/Navbar.module.scss";
 import HtmlTags from "./HtmlTags";
-import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
-  const { setActivePage } = useContext(NavigationContext);
-  const { setIsTransitioning } = useContext(TransitionContext);
-
-  const [navbarOpen, setNavbarOpen] = useState<Boolean>(false);
+  const [navbarOpen, setNavbarOpen] = useState<boolean | undefined>(false);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [activeLink, setActiveLink] = useState<string | null>(null);
-  const [navbarBackground, setNavbarBackground] = useState<Boolean>(false);
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -38,95 +28,54 @@ const Navbar: React.FC = () => {
     }
   }, [windowWidth]);
 
-  const toggleNavbar = () => {
-    setNavbarOpen(!navbarOpen);
-  };
-
-  useEffect(() => {
-    if (navbarOpen) {
-      setNavbarBackground(false);
-      console.log("foreground");
-    } else {
-      setTimeout(() => {
-        setNavbarBackground(true);
-        console.log("background");
-      }, 300);
-    }
-  }, [navbarOpen]);
-
-  const handleNavigation = (activeLink: string | null, page: JSX.Element) => {
-    setActiveLink(activeLink);
-    setIsTransitioning(true);
-
-    setTimeout(() => {
-      setNavbarOpen(false);
-    }, 100);
-
-    setTimeout(() => {
-      setIsTransitioning(false);
-      setActivePage(page);
-    }, 500);
-  };
-
   return (
     <>
-      <button className="nav__button" onClick={toggleNavbar}>
+      <button
+        className={S.toggleButton}
+        onClick={() => setNavbarOpen(!navbarOpen)}
+      >
         {!navbarOpen && <GrMenu />}
         {navbarOpen && <GrClose />}
       </button>
-      <nav
-        className={`nav ${
-          navbarOpen ? "fade-in" : windowWidth <= 1200 ? "fade-out" : ""
-        } ${navbarBackground ? (windowWidth <= 1200 ? "background" : "") : ""}`}
-      >
-        <span
-          className="nav__logo-container"
-          onClick={() => handleNavigation(null, <Landing />)}
-        >
-          <SmLogo className="nav__logo" />
-        </span>
-        <HtmlTags
-          tagType="ul"
-          children={
-            <ul className="nav__links">
-              <li
-                className={
-                  activeLink === "projects"
-                    ? "nav__link--active"
-                    : "nav__link--inactive"
-                }
-                onClick={(e) => handleNavigation("projects", <Projects />)}
-              >
-                PROJECTS
-              </li>
-
-              <li
-                className={
-                  activeLink === "inspiration"
-                    ? "nav__link--active"
-                    : "nav__link--inactive"
-                }
-                onClick={(e) =>
-                  handleNavigation("inspiration", <Inspiration />)
-                }
-              >
-                INSPIRATION
-              </li>
-              <li
-                className={
-                  activeLink === "blog"
-                    ? "nav__link--active"
-                    : "nav__link--inactive"
-                }
-                onClick={(e) => handleNavigation("blog", <Blog />)}
-              >
-                BLOG
-              </li>
-            </ul>
-          }
-        />
-      </nav>
+      <CSSTransition in={navbarOpen} timeout={500} classNames={"fade"}>
+        <nav className={S.Navbar}>
+          <span className={S.logoContainer}>
+            <Link to="/">
+              <SmLogo className={S.logo} />
+            </Link>
+          </span>
+          <HtmlTags
+            tagType="ul"
+            children={
+              <ul className={S.links}>
+                <NavLink linkTitle="projects" routeName="/projects" />
+                <NavLink linkTitle="inspiration" routeName="/inspiration" />
+                <NavLink linkTitle="blog" routeName="/blog" />
+              </ul>
+            }
+          />
+        </nav>
+      </CSSTransition>
     </>
+  );
+};
+
+interface NavLinkProps {
+  linkTitle: string;
+  routeName: string;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ linkTitle, routeName }) => {
+  const location = useLocation();
+  return (
+    <li
+      className={`
+        ${
+          location.pathname === routeName ? S.link___active : S.link___inactive
+        }`}
+    >
+      <Link to={routeName}>{linkTitle.toUpperCase()}</Link>
+    </li>
   );
 };
 

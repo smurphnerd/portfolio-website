@@ -1,0 +1,23 @@
+@import "../index.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag {
+  color: $link-selected;
+  font-family: $code-font;
+}
+
+.openTag {
+  margin: 2rem 0 2rem 2rem;
+  align-self: flex-start;
+}
+
+.closeTag {
+  margin: 2rem 2rem 2rem 0;
+  align-self: flex-end;
+}

@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import "../styles/styles.css";
+import S from "../styles/HtmlTags.module.scss";
 
 interface Props {
   tagType: string;
@@ -16,21 +16,17 @@ const HtmlTags: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="html-tag__container"
+      className={S.container}
       style={{
         height: inheritSize ? "inherit" : "auto",
         width: inheritSize ? "inherit" : "auto",
       }}
     >
-      <span
-        className={`html-tag__item html-tag__open ${hideTags ? "hidden" : ""}`}
-      >
+      <span className={`${S.tag} ${S.openTag} ${hideTags && "hidden"}`}>
         &lt;{tagType}&gt;
       </span>
       {children}
-      <span
-        className={`html-tag__item html-tag__close ${hideTags ? "hidden" : ""}`}
-      >
+      <span className={`${S.tag} ${S.closeTag} ${hideTags && "hidden"}`}>
         &lt;/{tagType}&gt;
       </span>
     </div>

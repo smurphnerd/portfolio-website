@@ -1,0 +1,30 @@
+@import "../index.scss";
+
+.section {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-image: url("../assets/sm-background.png");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.messageSection {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.title {
+  font-size: 44px;
+  margin: 0 2rem;
+  font-weight: 400;
+}
+
+@media (max-width: $phoneWidth) {
+  .landing__title {
+    font-size: 34px;
+  }
+}
