@@ -1,32 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { GrClose, GrMenu } from "react-icons/gr";
 import { Link, useLocation } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, config } from "react-transition-group";
 import { ReactComponent as SmLogo } from "../assets/sm-logo.svg";
 import S from "../styles/Navbar.module.scss";
 import HtmlTags from "./HtmlTags";
 
 const Navbar: React.FC = () => {
-  const [navbarOpen, setNavbarOpen] = useState<boolean | undefined>(false);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
+  const [navbarOpen, setNavbarOpen] = useState<boolean>(
+    windowWidth <= 1200 ? true : false
+  );
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", () =>
+        setWindowWidth(window.innerWidth)
+      );
     };
   }, []);
 
   useEffect(() => {
     if (windowWidth > 1200) {
+      setNavbarOpen(true);
+    } else {
       setNavbarOpen(false);
-      console.log("closed");
     }
   }, [windowWidth]);
+
+  // Reset condition to its original state
+  const handleLinkClick = () => {
+    windowWidth > 1200 ? setNavbarOpen(true) : setNavbarOpen(false);
+  };
 
   return (
     <>
@@ -37,7 +43,13 @@ const Navbar: React.FC = () => {
         {!navbarOpen && <GrMenu />}
         {navbarOpen && <GrClose />}
       </button>
-      <CSSTransition in={navbarOpen} timeout={500} classNames={"fade"}>
+
+      <CSSTransition
+        in={navbarOpen}
+        timeout={windowWidth <= 1200 ? 200 : 0}
+        classNames={windowWidth <= 1200 ? "fade" : ""}
+        unmountOnExit
+      >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>
             <Link to="/">
@@ -48,9 +60,21 @@ const Navbar: React.FC = () => {
             tagType="ul"
             children={
               <ul className={S.links}>
-                <NavLink linkTitle="projects" routeName="/projects" />
-                <NavLink linkTitle="inspiration" routeName="/inspiration" />
-                <NavLink linkTitle="blog" routeName="/blog" />
+                <NavLink
+                  linkTitle="projects"
+                  routeName="/projects"
+                  onClick={handleLinkClick}
+                />
+                <NavLink
+                  linkTitle="inspiration"
+                  routeName="/inspiration"
+                  onClick={handleLinkClick}
+                />
+                <NavLink
+                  linkTitle="blog"
+                  routeName="/blog"
+                  onClick={handleLinkClick}
+                />
               </ul>
             }
           />
@@ -63,9 +87,11 @@ const Navbar: React.FC = () => {
 interface NavLinkProps {
   linkTitle: string;
   routeName: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ linkTitle, routeName }) => {
+const NavLink: React.FC<NavLinkProps> = ({ linkTitle, routeName, onClick }) => {
+  const [first, setfirst] = useState(true);
   const location = useLocation();
   return (
     <li
@@ -74,7 +100,9 @@ const NavLink: React.FC<NavLinkProps> = ({ linkTitle, routeName }) => {
           location.pathname === routeName ? S.link___active : S.link___inactive
         }`}
     >
-      <Link to={routeName}>{linkTitle.toUpperCase()}</Link>
+      <Link to={routeName} onClick={onClick}>
+        {linkTitle.toUpperCase()}{" "}
+      </Link>
     </li>
   );
 };
