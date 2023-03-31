@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
       >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>
-            <Link to="/">
+            <Link to="welcome">
               <SmLogo className={S.logo} />
             </Link>
           </span>
@@ -91,7 +91,6 @@ interface NavLinkProps {
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ linkTitle, routeName, onClick }) => {
-  const [first, setfirst] = useState(true);
   const location = useLocation();
   return (
     <li

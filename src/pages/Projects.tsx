@@ -53,7 +53,7 @@ const Projects: React.FC = () => {
                   { icon: SqliteIcon, alt: "Sqlite icon" },
                 ]}
                 date="June - July 2022"
-                route="the-butterfly-effect"
+                route="butterfly-effect"
               />
               <ProjectCard
                 thumbnail={IlearnThumbnail}

@@ -1,7 +1,7 @@
-import _butterflyEffectThumbnail from "./butterfly-effect.png";
-import _ilearnThumbnail from "./ilearn.png";
-import _vaultThumbnail from "./vault.png";
+import _ButterflyEffectThumbnail from "./butterfly-effect.png";
+import _IlearnThumbnail from "./ilearn.png";
+import _VaultThumbnail from "./vault.png";
 
-export const ButterflyEffectThumbnail = _butterflyEffectThumbnail;
-export const IlearnThumbnail = _ilearnThumbnail;
-export const VaultThumbnail = _vaultThumbnail;
+export const ButterflyEffectThumbnail = _ButterflyEffectThumbnail;
+export const IlearnThumbnail = _IlearnThumbnail;
+export const VaultThumbnail = _VaultThumbnail;
