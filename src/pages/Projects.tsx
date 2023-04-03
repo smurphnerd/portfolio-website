@@ -8,7 +8,7 @@ import {
 } from "../assets/icons";
 import {
   ButterflyEffectThumbnail,
-  IlearnThumbnail,
+  ILearnThumbnail,
   VaultThumbnail,
 } from "../assets/thumbnails/";
 import HtmlTags from "../components/HtmlTags";
@@ -56,7 +56,7 @@ const Projects: React.FC = () => {
                 route="butterfly-effect"
               />
               <ProjectCard
-                thumbnail={IlearnThumbnail}
+                thumbnail={ILearnThumbnail}
                 projectName="iLearn website"
                 clientName="iLearn education"
                 languages={[
@@ -64,7 +64,7 @@ const Projects: React.FC = () => {
                   { icon: PostgresqlIcon, alt: PostgresqlIcon },
                 ]}
                 date="November 2022 - current"
-                route="ilearn-website"
+                route="ilearn"
               />
               <ProjectCard
                 thumbnail={VaultThumbnail}
@@ -72,7 +72,7 @@ const Projects: React.FC = () => {
                 clientName="Vault Payment Solutions"
                 languages={[{ icon: FlutterIcon, alt: "Flutter icon" }]}
                 date="March 2022 - current"
-                route="vault-app"
+                route="vault"
               />
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { GrClose, GrMenu } from "react-icons/gr";
 import { Link, useLocation } from "react-router-dom";
-import { CSSTransition, config } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import { ReactComponent as SmLogo } from "../assets/sm-logo.svg";
 import S from "../styles/Navbar.module.scss";
 import HtmlTags from "./HtmlTags";
@@ -48,11 +48,10 @@ const Navbar: React.FC = () => {
         in={navbarOpen}
         timeout={windowWidth <= 1200 ? 200 : 0}
         classNames={windowWidth <= 1200 ? "fade" : ""}
-        unmountOnExit
       >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>
-            <Link to="welcome">
+            <Link to="">
               <SmLogo className={S.logo} />
             </Link>
           </span>

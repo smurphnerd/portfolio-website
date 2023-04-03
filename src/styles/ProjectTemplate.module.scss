@@ -1,0 +1,48 @@
+@import "../index.scss";
+
+#root {
+  background-color: $darkened-bg;
+}
+
+.section {
+  padding: 40px 0 100px 0;
+  background-color: $darkened-bg;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100% - 140px);
+}
+
+.content {
+  position: relative;
+  width: 70%;
+  z-index: 3;
+}
+
+.banner {
+  height: 250px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: $skyFade;
+}
+
+.backButton {
+  z-index: 3;
+  color: $body-fg;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1000px) {
+  .section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .content {
+    width: 100%;
+  }
+}
