@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Outlet } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
