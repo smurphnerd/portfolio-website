@@ -20,27 +20,34 @@
   transition: opacity 100ms ease, transform 100ms ease;
 }
 
-.fade-enter {
+.navFade-enter {
   opacity: 0;
+  z-index: 98;
 }
 
-.fade-enter-active {
+.navFade-enter-active {
   opacity: 1;
   transition: opacity 200ms ease-in-out;
 }
 
-.fade-exit {
+.navFade-enter-done {
   opacity: 1;
+  z-index: 98;
 }
 
-.fade-exit-active {
+.navFade-exit {
+  opacity: 1;
+  z-index: 98;
+}
+
+.navFade-exit-active {
   opacity: 0;
   transition: opacity 200ms ease-in-out;
 }
 
-.fade-exit-done {
+.navFade-exit-done {
   opacity: 0;
-  display: none;
+  z-index: -99;
 }
 
 .hidden {
