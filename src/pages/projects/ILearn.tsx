@@ -48,12 +48,6 @@ const ILearn = () => {
         techSheet={["Django", "PostgreSQL", "JavaScript", "HTML", "CSS"]}
         resources={[
           <>
-            View the source code on my&nbsp;
-            <a href="https://github.com/therealSmurphy/ilearn" target="blank">
-              Github
-            </a>
-          </>,
-          <>
             Check out the current&nbsp;
             <a href="https://www.ilearneducation.com.au/" target="blank">
               iLearn website

@@ -46,7 +46,7 @@ const ButterflyEffect: React.FC = () => {
           <>
             View the source code on my&nbsp;
             <a
-              href="https://github.com/therealSmurphy/CS50-butterfly-effect"
+              href="https://github.com/smurphnerd/CS50-butterfly-effect"
               target="blank"
             >
               Github
