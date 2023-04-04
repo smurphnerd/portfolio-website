@@ -29,14 +29,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  overflow: auto;
 }
 
 #root {
   height: inherit;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }
 
 a {
@@ -49,4 +46,24 @@ button {
   background-color: transparent;
   box-shadow: none;
   border: none;
+}
+
+/* Scrollbar design from Butterfly effect */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: solid #4f4f4f 1px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #424242;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
 }
