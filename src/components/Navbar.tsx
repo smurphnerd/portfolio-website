@@ -47,11 +47,11 @@ const Navbar: React.FC = () => {
       <CSSTransition
         in={navbarOpen}
         timeout={windowWidth <= 1200 ? 200 : 0}
-        classNames={windowWidth <= 1200 ? "fade" : ""}
+        classNames={windowWidth <= 1200 ? "navFade" : ""}
       >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>
-            <Link to="">
+            <Link to="" onClick={handleLinkClick}>
               <SmLogo className={S.logo} />
             </Link>
           </span>

@@ -14,6 +14,7 @@ import {
 import HtmlTags from "../components/HtmlTags";
 import ProjectCard from "../components/ProjectCard";
 import S from "../styles/Projects.module.scss";
+import { Helmet } from "react-helmet";
 
 const Projects: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
@@ -36,6 +37,9 @@ const Projects: React.FC = () => {
 
   return (
     <div className={S.section}>
+      <Helmet>
+        <title>Projects</title>
+      </Helmet>
       <HtmlTags
         tagType="div"
         inheritSize={true}

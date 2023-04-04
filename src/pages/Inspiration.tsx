@@ -1,5 +1,6 @@
 import React from "react";
 import S from "../styles/Inspiration.module.scss";
+import { Helmet } from "react-helmet";
 
 const Inspiration: React.FC = () => {
   const today = new Date(Date.now());
@@ -27,6 +28,9 @@ const Inspiration: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Inspiration</title>
+      </Helmet>
       <div className={S.section}>
         <div className={S.stars}></div>
         <div className={S.twinkling}></div>
