@@ -1,5 +1,5 @@
 @import "../index.scss";
-/* Background effect from https://github.com/Carla-Codes/starry-night-css-animation*/
+/* Background effect from https://github.com/Carla-Codes/starry-night-css-animation */
 
 .section {
   width: 100%;
@@ -10,6 +10,7 @@
   align-items: center;
   position: relative;
   color: $body-quiet-color;
+  background-color: black;
 
   h1 {
     font-size: 44px;

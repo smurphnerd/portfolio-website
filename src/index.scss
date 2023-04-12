@@ -67,3 +67,9 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: #4f4f4f;
 }
+
+@media (max-width: $hiddenNavbarWidth) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
