@@ -1,5 +1,12 @@
 import React from "react";
 import S from "../styles/Project.module.scss";
+import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
+
+interface OtherProjectsProps {
+  previous: string;
+  next: string;
+}
 
 interface Props {
   thumbnail: string;
@@ -10,6 +17,7 @@ interface Props {
   about?: JSX.Element;
   techSheet?: string[];
   resources?: JSX.Element[];
+  otherProjects: OtherProjectsProps;
 }
 
 const Project: React.FC<Props> = ({
@@ -21,52 +29,65 @@ const Project: React.FC<Props> = ({
   about,
   techSheet,
   resources,
+  otherProjects,
 }) => {
   return (
-    <div className={S.content}>
-      <div className={S.header}>
-        <img
-          className={S.thumbnail}
-          src={thumbnail}
-          alt={`${title} thumbnail`}
-        />
-        <div>
-          <h1>{title}</h1>
-          <h2>{client}</h2>
-          <p className={S.blurb}>{blurb}</p>
-        </div>
-      </div>
-      {demo && <img className={S.demo} src={demo} alt={`${title} demo`} />}
-      {about && (
-        <div className={S.sectionBody}>
-          <ProjectHeader header="About this project" />
-          {about}
-        </div>
-      )}
-      {techSheet && (
-        <>
-          <ProjectHeader
-            header="Technology Sheet"
-            description="Code technologies I used while working on this project"
+    <>
+      <div className={S.content}>
+        <div className={S.header}>
+          <img
+            className={S.thumbnail}
+            src={thumbnail}
+            alt={`${title} thumbnail`}
           />
-          <ul>
-            {techSheet.map((technology, key) => {
-              return <li key={key}>{technology}</li>;
-            })}
-          </ul>
-        </>
-      )}
-      {resources && (
-        <>
-          <ProjectHeader header="Resources" />
-          <ul>
-            {resources.map((resource, key) => {
-              return <li key={key}>{resource}</li>;
-            })}
-          </ul>
-        </>
-      )}
-    </div>
+          <div>
+            <h1>{title}</h1>
+            <h2>{client}</h2>
+            <p className={S.blurb}>{blurb}</p>
+          </div>
+        </div>
+        {demo && <img className={S.demo} src={demo} alt={`${title} demo`} />}
+        {about && (
+          <div className={S.sectionBody}>
+            <ProjectHeader header="About this project" />
+            {about}
+          </div>
+        )}
+        {techSheet && (
+          <>
+            <ProjectHeader
+              header="Technology Sheet"
+              description="Code technologies I used while working on this project"
+            />
+            <ul>
+              {techSheet.map((technology, key) => {
+                return <li key={key}>{technology}</li>;
+              })}
+            </ul>
+          </>
+        )}
+        {resources && (
+          <>
+            <ProjectHeader header="Resources" />
+            <ul>
+              {resources.map((resource, key) => {
+                return <li key={key}>{resource}</li>;
+              })}
+            </ul>
+          </>
+        )}
+      </div>
+      <div className={S.footer}>
+        <a href={`/projects/${otherProjects.previous}`}>
+          <HiArrowLeft />
+          <p>Previous Project</p>
+        </a>
+        <a href={`/projects/${otherProjects.next}`}>
+          <p>Next Project</p>
+          <HiArrowRight />
+        </a>
+      </div>
+    </>
   );
 };
 

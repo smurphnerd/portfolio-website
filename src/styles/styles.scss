@@ -60,7 +60,7 @@
 
 .long-fade-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 1000ms ease-in-out;
 }
 
 .long-fade-exit {
@@ -69,10 +69,15 @@
 
 .long-fade-exit-active {
   opacity: 0;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 1000ms ease-in-out;
 }
 
 .long-fade-exit-done {
   opacity: 0;
   display: none;
+}
+
+.terminal-fade-exit-active {
+  opacity: 0;
+  transition: opacity 2000ms ease-in-out;
 }

@@ -53,6 +53,7 @@ const ButterflyEffect: React.FC = () => {
             </a>
           </>,
         ]}
+        otherProjects={{ next: "ilearn", previous: "vault" }}
       />
     </>
   );

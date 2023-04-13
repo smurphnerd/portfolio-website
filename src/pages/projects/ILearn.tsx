@@ -54,6 +54,7 @@ const ILearn = () => {
             </a>
           </>,
         ]}
+        otherProjects={{ next: "vault", previous: "butterfly-effect" }}
       />
     </>
   );

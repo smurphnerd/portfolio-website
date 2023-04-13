@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   route,
 }) => {
   return (
-    <Link to={route}>
+    <a href={`/projects/${route}`}>
       <div className={S.container}>
         <div className={S.mainContent}>
           <img
@@ -51,7 +51,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
         <h3 className={S.projectDate}>{date}</h3>
       </div>
-    </Link>
+    </a>
   );
 };
 

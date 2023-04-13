@@ -67,6 +67,27 @@
   }
 }
 
+.footer {
+  display: flex;
+  padding-top: 100px;
+  flex-direction: row;
+  justify-content: space-between;
+
+  a {
+    z-index: 3;
+    color: $link-selected;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    cursor: pointer;
+
+    p {
+      font-size: 1.3rem;
+    }
+  }
+}
+
 @media (max-width: 1000px) {
   .header {
     flex-direction: column;
@@ -117,5 +138,14 @@
   p,
   li {
     font-size: 1rem;
+  }
+
+  .footer {
+    a {
+      font-size: 1rem;
+      p {
+        font-size: 1rem;
+      }
+    }
   }
 }

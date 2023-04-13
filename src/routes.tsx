@@ -18,8 +18,9 @@ import Terminal from "./pages/Terminal";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
+      <Route path="/" index={true} element={<Terminal />} />
       <Route path="/" element={<MainTemplate />}>
-        <Route path="" element={<Landing />} />
+        <Route path="welcome" element={<Landing />} />
         <Route path="projects" element={<Projects />} />
         <Route path="inspiration" element={<Inspiration />} />
         <Route path="blog" element={<Blog />} />

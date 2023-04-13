@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
       >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>
-            <Link to="" onClick={handleLinkClick}>
+            <Link to="/vault" onClick={handleLinkClick}>
               <SmLogo className={S.logo} />
             </Link>
           </span>
@@ -69,11 +69,11 @@ const Navbar: React.FC = () => {
                   routeName="/inspiration"
                   onClick={handleLinkClick}
                 />
-                <NavLink
+                {/* <NavLink
                   linkTitle="blog"
                   routeName="/blog"
                   onClick={handleLinkClick}
-                />
+                /> */}
               </ul>
             }
           />

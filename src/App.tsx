@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 import "./styles/styles.scss";
 import { router } from "./routes";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import * as icons from "./assets/icons";
 import * as thumbnails from "./assets/thumbnails";
 import clouds from "./assets/clouds.png";

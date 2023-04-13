@@ -55,6 +55,7 @@ const Vault = () => {
             </a>
           </>,
         ]}
+        otherProjects={{ next: "butterfly-effect", previous: "ilearn" }}
       />
     </>
   );
