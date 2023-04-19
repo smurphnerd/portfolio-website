@@ -1,7 +1,6 @@
 import React from "react";
 import S from "../styles/Project.module.scss";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
-import { Link } from "react-router-dom";
 
 interface OtherProjectsProps {
   previous: string;

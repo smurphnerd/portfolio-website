@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import S from "../styles/ProjectCard.module.scss";
 
 interface LanguageIcon {

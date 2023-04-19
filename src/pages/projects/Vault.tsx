@@ -21,13 +21,8 @@ const Vault = () => {
               <a href="https://seventhbeam.com/" target="blank">
                 Seventh beam
               </a>
-              . Seventh Beam has been hired to integrate&nbsp;
-              <a href="https://www.wexinc.com/en-au/" target="blank">
-                WEX
-              </a>
-              , and merge Vault's two separate native iOS/Android applications
-              into a single app built with Flutter, following Vault's recent
-              partnership with WEX.
+              . Seventh Beam has been hired to merge Vault's two separate native
+              iOS/Android applications into a single app built with Flutter.
             </p>
             <p>
               Working on Vault has allowed me to gain a better understanding of
