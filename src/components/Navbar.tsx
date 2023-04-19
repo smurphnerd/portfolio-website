@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
       >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>
-            <Link to="/vault" onClick={handleLinkClick}>
+            <Link to="/welcome" onClick={handleLinkClick}>
               <SmLogo className={S.logo} />
             </Link>
           </span>
