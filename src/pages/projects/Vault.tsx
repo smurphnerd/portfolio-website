@@ -35,9 +35,9 @@ const Vault = () => {
             </p>
             <p>
               Overall, I'm really thankful for the mentors I've had during this
-              project who continue to provide me with difficult challenges who
-              continuously push me out of my comfort zone. Thanks to them, I've
-              been able to learn a great deal.
+              project who continue to provide me with difficult challenges and
+              push me out of my comfort zone. Thanks to them, I've been able to
+              learn a great deal.
             </p>
           </>
         }
