@@ -10,32 +10,30 @@ import stars from "./assets/stars.png";
 import smBackground from "./assets/sm-background.png";
 import smLogo from "./assets/sm-logo.svg";
 
+type ImagePromise = Promise<Event>;
+// Creates a new promise that resolves on image onload
+const loadImage = (src: string): ImagePromise => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = resolve;
+    img.src = src;
+  });
+};
+
 function App() {
-  type ImagePromise = Promise<Event>;
-
-  // Creates a new promise that resolves on image onload
-  const loadImage = (src: string): ImagePromise => {
-    return new Promise((resolve) => {
-      const img = new Image();
-      img.onload = resolve;
-      img.src = src;
-    });
-  };
-
-  const loadAssets = async (): Promise<void> => {
-    const promises: ImagePromise[] = [
-      ...Object.values(icons).map(loadImage),
-      ...Object.values(thumbnails).map(loadImage),
-      loadImage(clouds),
-      loadImage(twinking),
-      loadImage(stars),
-      loadImage(smBackground),
-      loadImage(smLogo),
-    ];
-    await Promise.all(promises);
-  };
-
   useEffect(() => {
+    const loadAssets = async (): Promise<void> => {
+      const promises: ImagePromise[] = [
+        ...Object.values(icons).map(loadImage),
+        ...Object.values(thumbnails).map(loadImage),
+        loadImage(clouds),
+        loadImage(twinking),
+        loadImage(stars),
+        loadImage(smBackground),
+        loadImage(smLogo),
+      ];
+      await Promise.all(promises);
+    };
     loadAssets();
   }, []);
 
