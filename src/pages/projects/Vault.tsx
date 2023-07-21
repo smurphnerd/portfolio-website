@@ -1,4 +1,3 @@
-import React from "react";
 import Project from "../../components/Project";
 import { VaultThumbnail } from "../../assets/thumbnails";
 import { Helmet } from "react-helmet";

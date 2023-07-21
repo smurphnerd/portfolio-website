@@ -13,14 +13,12 @@ import Projects from "./pages/Projects";
 import Root from "./pages/Root";
 import ILearn from "./pages/projects/ILearn";
 import Vault from "./pages/projects/Vault";
-import Terminal from "./pages/Terminal";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route path="/" index={true} element={<Terminal />} />
       <Route path="/" element={<MainTemplate />}>
-        <Route path="welcome" element={<Landing />} />
+        <Route path="/" element={<Landing />} />
         <Route path="projects" element={<Projects />} />
         <Route path="inspiration" element={<Inspiration />} />
         <Route path="blog" element={<Blog />} />
@@ -30,6 +28,6 @@ export const router = createBrowserRouter(
         <Route path="ilearn" element={<ILearn />}></Route>
         <Route path="vault" element={<Vault />}></Route>
       </Route>
-    </Route>
-  )
+    </Route>,
+  ),
 );

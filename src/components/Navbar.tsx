@@ -9,14 +9,14 @@ import HtmlTags from "./HtmlTags";
 const Navbar: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [navbarOpen, setNavbarOpen] = useState<boolean>(
-    windowWidth <= 1200 ? true : false
+    windowWidth <= 1200 ? true : false,
   );
 
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     return () => {
       window.removeEventListener("resize", () =>
-        setWindowWidth(window.innerWidth)
+        setWindowWidth(window.innerWidth),
       );
     };
   }, []);
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
       >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>
-            <Link to="/welcome" onClick={handleLinkClick}>
+            <Link to="/" onClick={handleLinkClick}>
               <SmLogo className={S.logo} />
             </Link>
           </span>

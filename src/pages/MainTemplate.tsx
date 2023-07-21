@@ -30,7 +30,7 @@ const MainTemplate: React.FC = () => {
             timeout={600}
             classNames="swipe"
           >
-            {currentOutlet}
+            <>{currentOutlet}</>
           </CSSTransition>
         </SwitchTransition>
       </div>
