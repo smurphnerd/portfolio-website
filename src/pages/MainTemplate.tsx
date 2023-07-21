@@ -19,7 +19,7 @@ const MainTemplate: React.FC = () => {
     <CSSTransition
       unmountOnExit
       in={!isLoading}
-      timeout={500}
+      timeout={1000}
       classNames="long-fade"
     >
       <div className={S.content}>
@@ -30,7 +30,7 @@ const MainTemplate: React.FC = () => {
             timeout={600}
             classNames="swipe"
           >
-            {currentOutlet}
+            <>{currentOutlet}</>
           </CSSTransition>
         </SwitchTransition>
       </div>

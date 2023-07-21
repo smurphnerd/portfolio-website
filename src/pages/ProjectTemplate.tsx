@@ -17,7 +17,7 @@ const ProjectTemplate = () => {
     <CSSTransition
       unmountOnExit
       in={!isLoading}
-      timeout={500}
+      timeout={1000}
       classNames="long-fade"
     >
       <div className={S.section}>

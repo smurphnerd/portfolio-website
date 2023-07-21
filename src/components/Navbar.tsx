@@ -9,14 +9,14 @@ import HtmlTags from "./HtmlTags";
 const Navbar: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [navbarOpen, setNavbarOpen] = useState<boolean>(
-    windowWidth <= 1200 ? true : false
+    windowWidth <= 1200 ? true : false,
   );
 
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     return () => {
       window.removeEventListener("resize", () =>
-        setWindowWidth(window.innerWidth)
+        setWindowWidth(window.innerWidth),
       );
     };
   }, []);
@@ -47,11 +47,11 @@ const Navbar: React.FC = () => {
       <CSSTransition
         in={navbarOpen}
         timeout={windowWidth <= 1200 ? 200 : 0}
-        classNames={windowWidth <= 1200 ? "fade" : ""}
+        classNames={windowWidth <= 1200 ? "navFade" : ""}
       >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>
-            <Link to="">
+            <Link to="/" onClick={handleLinkClick}>
               <SmLogo className={S.logo} />
             </Link>
           </span>
@@ -69,11 +69,11 @@ const Navbar: React.FC = () => {
                   routeName="/inspiration"
                   onClick={handleLinkClick}
                 />
-                <NavLink
+                {/* <NavLink
                   linkTitle="blog"
                   routeName="/blog"
                   onClick={handleLinkClick}
-                />
+                /> */}
               </ul>
             }
           />
