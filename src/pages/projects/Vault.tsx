@@ -1,6 +1,7 @@
 import Project from "../../components/Project";
 import { VaultThumbnail } from "../../assets/thumbnails";
 import { Helmet } from "react-helmet";
+import { InTextAnchor } from "../../components/InTextAnchor";
 
 const Vault = () => {
   return (
@@ -16,11 +17,12 @@ const Vault = () => {
         about={
           <>
             <p>
-              This is a project I'm doing at my placement at&nbsp;
-              <a href="https://seventhbeam.com/" target="blank">
-                Seventh beam
-              </a>
-              . Seventh Beam has been hired to merge Vault's two separate native
+              This is a project I'm doing at my placement at
+              <InTextAnchor
+                href="https://seventhbeam.com/"
+                text="Seventh Beam."
+              />
+              Seventh Beam has been hired to merge Vault's two separate native
               iOS/Android applications into a single app built with Flutter.
             </p>
             <p>
@@ -43,10 +45,8 @@ const Vault = () => {
         techSheet={["Flutter"]}
         resources={[
           <>
-            Check out the&nbsp;
-            <a href="https://www.vaultps.com.au/products/" target="blank">
-              Vault app
-            </a>
+            Check out the
+            <InTextAnchor href="https://www.vaultps.com.au/" text="Vault app" />
           </>,
         ]}
         otherProjects={{ next: "butterfly-effect", previous: "ilearn" }}

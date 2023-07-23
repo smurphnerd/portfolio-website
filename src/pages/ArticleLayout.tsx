@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
 import { HiArrowLeft } from "react-icons/hi";
+import { Link, Outlet } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import React from "react";
 
-const ProjectTemplate = () => {
+interface Props {
+  link: string;
+}
+
+export const ArticleLayout: React.FC<Props> = ({ link }: Props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -20,19 +23,17 @@ const ProjectTemplate = () => {
       timeout={1000}
       classNames="long-fade"
     >
-      <div className="template-section">
-        <div className="template-content">
-          <Link to="/projects">
+      <div className="article-section">
+        <div className="article-content">
+          <Link to={link}>
             <button className="back-button">
               <HiArrowLeft />
             </button>
           </Link>
           <Outlet />
         </div>
-        <div className="template-banner"></div>
+        <div className="article-banner"></div>
       </div>
     </CSSTransition>
   );
 };
-
-export default ProjectTemplate;

@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import { HiArrowLeft } from "react-icons/hi";
-import { CSSTransition } from "react-transition-group";
 import React from "react";
+import { useEffect, useState } from "react";
+import { HiArrowLeft } from "react-icons/hi";
+import { Link, Outlet } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
-const ProjectTemplate = () => {
+export const ArticleTemplate = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const ProjectTemplate = () => {
     >
       <div className="template-section">
         <div className="template-content">
-          <Link to="/projects">
+          <Link to="/blog">
             <button className="back-button">
               <HiArrowLeft />
             </button>
@@ -34,5 +34,3 @@ const ProjectTemplate = () => {
     </CSSTransition>
   );
 };
-
-export default ProjectTemplate;

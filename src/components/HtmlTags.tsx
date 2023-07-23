@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import S from "../styles/HtmlTags.module.scss";
+import S from "./HtmlTags.module.scss";
 
 interface Props {
   tagType: string;

@@ -3,7 +3,7 @@ import { GrClose, GrMenu } from "react-icons/gr";
 import { Link, useLocation } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { ReactComponent as SmLogo } from "../assets/sm-logo.svg";
-import S from "../styles/Navbar.module.scss";
+import S from "./Navbar.module.scss";
 import HtmlTags from "./HtmlTags";
 
 const Navbar: React.FC = () => {
@@ -69,11 +69,11 @@ const Navbar: React.FC = () => {
                   routeName="/inspiration"
                   onClick={handleLinkClick}
                 />
-                {/* <NavLink
+                <NavLink
                   linkTitle="blog"
                   routeName="/blog"
                   onClick={handleLinkClick}
-                /> */}
+                />
               </ul>
             }
           />
