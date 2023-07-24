@@ -3,6 +3,7 @@ import Project from "../../components/Project";
 import { ButterflyEffectThumbnail } from "../../assets/thumbnails";
 import { ButterflyEffectDemo } from "../../assets/demos";
 import { Helmet } from "react-helmet";
+import { InTextAnchor } from "../../components/InTextAnchor";
 
 const ButterflyEffect: React.FC = () => {
   return (
@@ -44,13 +45,11 @@ const ButterflyEffect: React.FC = () => {
         techSheet={["Flask", "SQLite", "JavaScript", "HTML", "CSS"]}
         resources={[
           <>
-            View the source code on my&nbsp;
-            <a
+            View the source code on my
+            <InTextAnchor
               href="https://github.com/smurphnerd/CS50-butterfly-effect"
-              target="blank"
-            >
-              Github
-            </a>
+              text="Github"
+            />
           </>,
         ]}
         otherProjects={{ next: "ilearn", previous: "vault" }}

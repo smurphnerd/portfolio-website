@@ -88,4 +88,5 @@ const quotes: string[] = [
   "Eat something today that makes you happy.",
   "You've left a lasting print in the minds of everyone you've met.",
   "If you miss out on one opportunity, just know there are a million more to replace it.",
+  "It's better to be unsure of yourself and learn something new than to be sure of yourself and end up being wrong.",
 ];

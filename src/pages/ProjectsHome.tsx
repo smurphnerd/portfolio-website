@@ -16,7 +16,7 @@ import ProjectCard from "../components/ProjectCard";
 import S from "../styles/Projects.module.scss";
 import { Helmet } from "react-helmet";
 
-const Projects: React.FC = () => {
+const ProjectsHome: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [hideTags, setHideTags] = useState<Boolean>(false);
 
@@ -86,4 +86,4 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects;
+export default ProjectsHome;

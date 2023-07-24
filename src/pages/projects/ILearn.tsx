@@ -3,6 +3,7 @@ import Project from "../../components/Project";
 import { ILearnThumbnail } from "../../assets/thumbnails";
 import { ILearnDemo } from "../../assets/demos";
 import { Helmet } from "react-helmet";
+import { InTextAnchor } from "../../components/InTextAnchor";
 
 const ILearn = () => {
   return (
@@ -48,10 +49,11 @@ const ILearn = () => {
         techSheet={["Django", "PostgreSQL", "JavaScript", "HTML", "CSS"]}
         resources={[
           <>
-            Check out the current&nbsp;
-            <a href="https://www.ilearneducation.com.au/" target="blank">
-              iLearn website
-            </a>
+            Check out the current
+            <InTextAnchor
+              href="https://www.ilearneducation.com.au/"
+              text="iLearn website"
+            />
           </>,
         ]}
         otherProjects={{ next: "vault", previous: "butterfly-effect" }}

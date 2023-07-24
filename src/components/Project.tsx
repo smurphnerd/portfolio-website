@@ -1,5 +1,5 @@
 import React from "react";
-import S from "../styles/Project.module.scss";
+import S from "./Project.module.scss";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 
 interface OtherProjectsProps {
@@ -33,16 +33,16 @@ const Project: React.FC<Props> = ({
   return (
     <>
       <div className={S.content}>
-        <div className={S.header}>
+        <div className="article-header">
           <img
-            className={S.thumbnail}
+            className="article-thumbnail"
             src={thumbnail}
             alt={`${title} thumbnail`}
           />
           <div>
             <h1>{title}</h1>
             <h2>{client}</h2>
-            <p className={S.blurb}>{blurb}</p>
+            <p className={[S.blurb, "mt-2"].join(" ")}>{blurb}</p>
           </div>
         </div>
         {demo && <img className={S.demo} src={demo} alt={`${title} demo`} />}
