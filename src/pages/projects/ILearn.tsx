@@ -1,9 +1,7 @@
-import React from "react";
 import Project from "../../components/Project";
 import { ILearnThumbnail } from "../../assets/thumbnails";
 import { ILearnDemo } from "../../assets/demos";
 import { Helmet } from "react-helmet";
-import { InTextAnchor } from "../../components/InTextAnchor";
 
 const ILearn = () => {
     return (
