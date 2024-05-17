@@ -89,4 +89,6 @@ const quotes: string[] = [
   "You've left a lasting print in the minds of everyone you've met.",
   "If you miss out on one opportunity, just know there are a million more to replace it.",
   "It's better to be unsure of yourself and learn something new than to be sure of yourself and end up being wrong.",
+  "Balancing the ingredients of being productive while making time to enjoy yourself is necessary for creating a delicious and nutritious life.",
+  "If you pile on more work, you'll have less time to think about how empty your life is.",
 ];
