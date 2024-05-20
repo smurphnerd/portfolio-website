@@ -5,6 +5,7 @@ import _VaultThumbnail from "./vault.png";
 import _WhyIStartedProgrammingThumbnail from "./why-i-started-programming.png";
 import _VodalogicThumbnail from "./vodalogic.png";
 import _LearningMoreByDoingLessThumbnail from "./learning-more-by-doing-less.png";
+import _WhyLeaveTownThumbnail from "./why-leave-town.png";
 
 export const ButterflyEffectThumbnail = _ButterflyEffectThumbnail;
 export const ILearnThumbnail = _ILearnThumbnail;
@@ -14,3 +15,4 @@ export const WhyIStartedProgrammingThumbnail = _WhyIStartedProgrammingThumbnail;
 export const VodalogicThumbnail = _VodalogicThumbnail;
 export const LearningMoreByDoingLessThumbnail =
   _LearningMoreByDoingLessThumbnail;
+export const WhyLeaveTownThumbnail = _WhyLeaveTownThumbnail;

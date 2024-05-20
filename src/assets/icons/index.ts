@@ -5,6 +5,7 @@ import _PostgresqlIcon from "./postgresql.png";
 import _FlutterIcon from "./flutter.png";
 import _WordpressIcon from "./wordpress.png";
 import _GolangIcon from "./golang.png";
+import _NextjsIcon from "./nextjs.png";
 
 export type Icon = { src: string; alt: string };
 
@@ -15,3 +16,4 @@ export const PostgresqlIcon = { src: _PostgresqlIcon, alt: "PostgreSQL icon" };
 export const FlutterIcon = { src: _FlutterIcon, alt: "Flutter icon" };
 export const WordPressIcon = { src: _WordpressIcon, alt: "WordPress icon" };
 export const GolangIcon = { src: _GolangIcon, alt: "Golang icon" };
+export const NextjsIcon = { src: _NextjsIcon, alt: "Next.js icon" };
