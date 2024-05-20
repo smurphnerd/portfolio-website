@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { HiArrowLeft } from "react-icons/hi";
 import { CSSTransition } from "react-transition-group";
-import React from "react";
 
 const ProjectTemplate = () => {
   const [isLoading, setIsLoading] = useState(true);
