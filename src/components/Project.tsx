@@ -56,7 +56,7 @@ const Project: React.FC<Props> = ({
           <>
             <ProjectHeader
               header="Technology Sheet"
-              description="Code technologies I used while working on this project"
+              description="Languages, frameworks, and tools used in this project"
             />
             <ul>
               {techSheet.map((technology, key) => {
