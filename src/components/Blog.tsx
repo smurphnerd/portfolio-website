@@ -1,14 +1,14 @@
 interface Props {
   thumbnail: string;
   title: string;
-  body: JSX.Element;
+  content: JSX.Element;
   date: string;
 }
 
 export const Blog: React.FC<Props> = ({
   thumbnail,
   title,
-  body,
+  content,
   date,
 }: Props) => {
   return (
@@ -24,7 +24,7 @@ export const Blog: React.FC<Props> = ({
           <h6>{date}</h6>
         </div>
       </div>
-      <div className="flex flex-col">{body}</div>
+      <div className="flex flex-col">{content}</div>
     </div>
   );
 };

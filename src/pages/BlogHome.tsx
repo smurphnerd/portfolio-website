@@ -3,10 +3,7 @@ import S from "../styles/Blog.module.scss";
 import { Helmet } from "react-helmet";
 import HtmlTags from "../components/HtmlTags";
 import { BlogCard } from "../components/BlogCard";
-import {
-  TheButterflyEffectThumbnail,
-  WhyIStartedProgrammingThumbnail,
-} from "../assets/thumbnails";
+import BlogPosts from "./blogs";
 
 const BlogHome: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
@@ -40,20 +37,16 @@ const BlogHome: React.FC = () => {
           <div className={S.container}>
             <div className={S.content}>
               <h1 className={S.title}>Blogs</h1>
-              <BlogCard
-                date="16 June 2022"
-                blurb="The origin story of my programming journey. Find out where it all began..."
-                title="Why I Started Programming"
-                thumbnail={WhyIStartedProgrammingThumbnail}
-                route="why-i-started-programming"
-              />
-              <BlogCard
-                date="2 August 2022"
-                blurb="A bit about my experience in developing my first full stack application from scratch..."
-                title="The Butterfly Effect"
-                thumbnail={TheButterflyEffectThumbnail}
-                route="the-butterfly-effect"
-              />
+              {BlogPosts.map((post) => (
+                <BlogCard
+                  key={post.route}
+                  date={post.date}
+                  blurb={post.blurb}
+                  title={post.title}
+                  thumbnail={post.thumbnail}
+                  route={post.route}
+                />
+              ))}
             </div>
           </div>
         }
