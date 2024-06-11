@@ -34,9 +34,9 @@ export const WhyImScaredAboutTheFutureOfAI: BlogPost = {
       </p>
 
       <p>
-        In my introduction, I mentioned two essential features of AGI: it must
-        be 1) 'powerful' and 2) 'working alongside us humans'. These are
-        distinct challenges in the AI industry, with the former relating to AI
+        As I mentioned, there are two essential features of AGI: it must be 1)
+        'powerful' and 2) 'working alongside us humans'. These are distinct
+        challenges in the AI industry, with the former relating to AI
         capabilities and the latter to AI safety. And to reach my described
         utopia, both of these need to be addressed.
       </p>
@@ -70,8 +70,9 @@ export const WhyImScaredAboutTheFutureOfAI: BlogPost = {
         capabilities achieve AGI level, I'm concerned that we won't match this
         progress on the safety front. Specifically, I'm afraid that we'll end up
         in that bottom left quadrant of dangerous AGI. My concern is twofold:
-        there are economic barriers that hinder the development of AI safety,
-        and philosophical barriers that make achieving AI alignment difficult.
+        first, there are economic barriers that hinder the development of AI
+        safety, and second, there are fundamental philosophical barriers that
+        make achieving AI alignment inherently difficult.
       </p>
 
       <p>
@@ -96,14 +97,14 @@ export const WhyImScaredAboutTheFutureOfAI: BlogPost = {
         A corresponding reason why companies won't pay attention to AI safety is
         the economic concept knows as the 'Free-rider problem'. This is a type
         of market failure that occurs when individuals or companies benefit from
-        resources, public goods and common pool resources without having to pay
-        for them. In the context of AI, while every company may acknowledge the
-        necessity of AI safety, it is more economically advantageous for them to
-        focus on profitable endeavors and wait others to address the safety
-        issues, which they can then adopt later. As a result, with each company
-        adopting this mindset, the responsibility and funding of AI safety
-        research fall governments and charities, which far less appealing to
-        leading AI researchers.
+        public goods and common pool resources without having to pay for them.
+        In the context of AI, while every company may acknowledge the necessity
+        of AI safety, it is more economically advantageous for them to focus on
+        profitable endeavors and wait others to address the safety issues, which
+        they can then adopt later. As a result, with each company adopting this
+        mindset, the responsibility and funding of AI safety research fall
+        governments and charities, which far less appealing to leading AI
+        researchers.
       </p>
 
       <p>
