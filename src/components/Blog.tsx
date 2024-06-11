@@ -78,7 +78,7 @@ const CommentSection: React.FC<{ route: string }> = ({ route }) => {
 
   useEffect(() => {
     getComments();
-  }, []);
+  });
 
   async function getComments() {
     const { data, error } = await supabase

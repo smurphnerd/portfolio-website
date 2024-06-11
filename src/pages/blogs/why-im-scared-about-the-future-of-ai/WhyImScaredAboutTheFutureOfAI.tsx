@@ -43,23 +43,25 @@ export const WhyImScaredAboutTheFutureOfAI: BlogPost = {
       <BlogTable
         table={
           <table>
-            <tr>
-              <th></th>
-              <th>Capabilities</th>
-              <th>No capabilities</th>
-            </tr>
-            <tr>
-              <th>Safety</th>
-              <td>
-                Utopia: AGI works powerfully and safely alongside us humans
-              </td>
-              <td>Safe but ineffective AI</td>
-            </tr>
-            <tr>
-              <th>No safety</th>
-              <td>Dangerous AGI (Terminator)</td>
-              <td>Ineffective and unsafe AI</td>
-            </tr>
+            <tbody>
+              <tr>
+                <th></th>
+                <th>Capabilities</th>
+                <th>No capabilities</th>
+              </tr>
+              <tr>
+                <th>Safety</th>
+                <td>
+                  Utopia: AGI works powerfully and safely alongside us humans
+                </td>
+                <td>Safe but ineffective AI</td>
+              </tr>
+              <tr>
+                <th>No safety</th>
+                <td>Dangerous AGI (Terminator)</td>
+                <td>Ineffective and unsafe AI</td>
+              </tr>
+            </tbody>
           </table>
         }
       />
