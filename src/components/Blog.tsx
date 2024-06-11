@@ -143,7 +143,7 @@ const CommentSection: React.FC<{ route: string }> = ({ route }) => {
             name="comment"
             required
             placeholder="*Comment"
-            className="col-span-2 h-32"
+            className="md:col-span-2 h-32"
           />
         </div>
         <button type="submit" className="align-self-end">
