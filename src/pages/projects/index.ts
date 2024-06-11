@@ -6,23 +6,23 @@ import Vodalogic from "./Vodalogic";
 import WhyLeaveTown from "./WhyLeaveTown";
 
 export type Project = {
-  thumbnail: string;
-  title: string;
-  client: string;
-  blurb: string;
-  route: string;
-  demo?: string;
-  about?: JSX.Element;
-  techSheet?: string[];
-  resources?: JSX.Element[];
-  languages?: Icon[];
-  date: string;
+    thumbnail: string;
+    title: string;
+    client: string;
+    blurb: string;
+    route: string;
+    demo?: string;
+    about?: JSX.Element;
+    techSheet?: string[];
+    resources?: JSX.Element[];
+    languages?: Icon[];
+    date: string;
 };
 
 export const Projects: Project[] = [
-  ButterflyEffect,
-  ILearn,
-  Vault,
-  Vodalogic,
-  WhyLeaveTown,
+    WhyLeaveTown,
+    Vodalogic,
+    Vault,
+    ILearn,
+    ButterflyEffect,
 ];

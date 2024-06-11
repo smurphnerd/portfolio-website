@@ -1,6 +1,7 @@
 import { WhyIStartedProgramming } from "./why-i-started-programming/WhyIStartedProgramming";
 import { TheButterflyEffect } from "./the-butterfly-effect/TheButterflyEffect";
 import { LearningMoreByDoingLess } from "./learning-more-by-doing-less/LearningMoreByDoingLess";
+import { WhyImScaredAboutTheFutureOfAI } from "./why-im-scared-about-the-future-of-ai/WhyImScaredAboutTheFutureOfAI";
 
 export type BlogPost = {
   title: string;
@@ -12,9 +13,10 @@ export type BlogPost = {
 };
 
 export const BlogPosts: BlogPost[] = [
-  WhyIStartedProgramming,
-  TheButterflyEffect,
+  WhyImScaredAboutTheFutureOfAI,
   LearningMoreByDoingLess,
+  TheButterflyEffect,
+  WhyIStartedProgramming,
 ];
 
 export default BlogPosts;

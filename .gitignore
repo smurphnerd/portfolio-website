@@ -21,8 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# unfinsihed work
-src/utils/
-src/pages/Terminal.tsx
-src/styles/Terminal.module.scss

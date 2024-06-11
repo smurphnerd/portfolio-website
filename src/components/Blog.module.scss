@@ -1,0 +1,16 @@
+@import "../index.scss";
+
+.sectionHeader {
+  border-bottom: $accent-light solid 1px;
+  padding: 24px 0 24px 0;
+  margin-bottom: 24px;
+
+  h2 {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+
+  p {
+    margin-top: 20px;
+  }
+}

@@ -74,6 +74,7 @@ export const router = createBrowserRouter(
                   date={post.date}
                   thumbnail={post.thumbnail}
                   content={post.content}
+                  route={post.route}
                 />
               </>
             }
