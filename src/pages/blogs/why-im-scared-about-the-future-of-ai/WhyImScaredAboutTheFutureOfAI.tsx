@@ -102,8 +102,8 @@ export const WhyImScaredAboutTheFutureOfAI: BlogPost = {
         of AI safety, it is more economically advantageous for them to focus on
         profitable endeavors and wait others to address the safety issues, which
         they can then adopt later. As a result, with each company adopting this
-        mindset, the responsibility and funding of AI safety research fall
-        governments and charities, which far less appealing to leading AI
+        mindset, the responsibility and funding of AI safety research falls on
+        governments and charities, which is far less appealing to leading AI
         researchers.
       </p>
 
