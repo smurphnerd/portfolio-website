@@ -24,11 +24,14 @@ Copy `.env.local` and set the Supabase credentials used by the comments section:
 REACT_APP_SUPABASE_URL=...
 REACT_APP_SUPABASE_ANON_KEY=...
 REACT_APP_TURNSTILE_SITE_KEY=...
+REACT_APP_COMMENTS_ENABLED=true   # omit or set to anything else to hide the comment UI entirely
 ```
 
-## Comment spam protection
+## Comments
 
-Blog comments go through a Supabase Edge Function (`supabase/functions/post-comment`) that verifies a [Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/) token before inserting. RLS on `blog_comments` blocks direct anon writes, so the function is the only path to create a comment.
+Comments are gated behind `REACT_APP_COMMENTS_ENABLED`. When the flag is anything other than `"true"` (or unset), the comment section isn't rendered and Supabase/Turnstile aren't contacted — useful while a backend is down or being migrated.
+
+When enabled, comments go through a Supabase Edge Function (`supabase/functions/post-comment`) that verifies a [Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/) token before inserting. RLS on `blog_comments` blocks direct anon writes, so the function is the only path to create a comment.
 
 One-time setup:
 

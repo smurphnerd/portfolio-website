@@ -7,6 +7,8 @@ import { useMarkdown } from "../utils/useMarkdown";
 import S from "./Blog.module.scss";
 import { MarkdownRenderer } from "./MarkdownRenderer";
 
+const COMMENTS_ENABLED = process.env.REACT_APP_COMMENTS_ENABLED === "true";
+
 interface Props {
   thumbnail: string;
   title: string;
@@ -66,7 +68,7 @@ export const Blog: React.FC<Props> = ({
       >
         <HiArrowUp />
       </button>
-      <CommentSection route={route} />
+      {COMMENTS_ENABLED && <CommentSection route={route} />}
     </div>
   );
 };
