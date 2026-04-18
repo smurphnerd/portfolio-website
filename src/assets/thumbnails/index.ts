@@ -10,6 +10,7 @@ import _WhyImScaredAboutTheFutureOfAI from "./why-im-scared-about-the-future-of-
 import _DLKaggleThumbnail from "./dl-kaggle.png";
 import _FlatlandChallengeThumbnail from "./flatland-challenge.png";
 import _PacmanCTFThumbnail from "./pacman-ctf.png";
+import _SparsityInterpretabilityThumbnail from "./sparsity-interpretability.png";
 
 export const ButterflyEffectThumbnail = _ButterflyEffectThumbnail;
 export const ILearnThumbnail = _ILearnThumbnail;
@@ -25,3 +26,5 @@ export const WhyImScaredAboutTheFutureOfAIThumbnail =
 export const DLKaggleThumbnail = _DLKaggleThumbnail;
 export const FlatlandChallengeThumbnail = _FlatlandChallengeThumbnail;
 export const PacmanCTFThumbnail = _PacmanCTFThumbnail;
+export const SparsityInterpretabilityThumbnail =
+  _SparsityInterpretabilityThumbnail;

@@ -57,7 +57,7 @@ const FlatlandChallenge: Project = {
       />
     </>,
     <>
-      View the source code on
+      View the source code on my
       <InTextAnchor
         href="https://github.com/smurphnerd/flatland-challenge"
         text="Github."

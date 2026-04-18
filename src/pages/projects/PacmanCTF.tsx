@@ -68,7 +68,7 @@ const PacmanCTF: Project = {
       />
     </>,
     <>
-      View the source code on
+      View the source code on my
       <InTextAnchor
         href="https://github.com/smurphnerd/pacman-ctf"
         text="Github."

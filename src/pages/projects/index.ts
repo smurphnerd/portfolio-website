@@ -4,6 +4,7 @@ import DLKaggle from "./DLKaggle";
 import FlatlandChallenge from "./FlatlandChallenge";
 import ILearn from "./ILearn";
 import PacmanCTF from "./PacmanCTF";
+import SparsityInterpretability from "./SparsityInterpretability";
 import Vault from "./Vault";
 import Vodalogic from "./Vodalogic";
 import WhyLeaveTown from "./WhyLeaveTown";
@@ -24,6 +25,7 @@ export type Project = {
 };
 
 export const Projects: Project[] = [
+  SparsityInterpretability,
   PacmanCTF,
   FlatlandChallenge,
   DLKaggle,
