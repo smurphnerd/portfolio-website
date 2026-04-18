@@ -21,3 +21,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# LaTeX build artifacts
+resume/*.aux
+resume/*.log
+resume/*.fls
+resume/*.fdb_latexmk
+resume/*.synctex.gz
+resume/*.out
+public/resume/*.aux
+public/resume/*.log
+public/resume/*.fls
+public/resume/*.fdb_latexmk
+public/resume/*.synctex.gz
+public/resume/*.out

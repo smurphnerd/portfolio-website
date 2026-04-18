@@ -3,13 +3,15 @@ import { HiArrowUp } from "react-icons/hi";
 import { timeAgo } from "../utils/format";
 import { supabase } from "../utils/supabase";
 import S from "./Blog.module.scss";
+import { MarkdownRenderer } from "./MarkdownRenderer";
 
 interface Props {
   thumbnail: string;
   title: string;
-  content: JSX.Element;
+  content: string | JSX.Element;
   date: string;
   route: string;
+  markdownPath?: string;
 }
 
 export const Blog: React.FC<Props> = ({
@@ -18,8 +20,10 @@ export const Blog: React.FC<Props> = ({
   content,
   date,
   route,
+  markdownPath,
 }: Props) => {
   const [showButton, setShowButton] = useState(false);
+  const [markdownContent, setMarkdownContent] = useState<string>("");
 
   const handleScroll = () => {
     if (window.scrollY > 300) {
@@ -40,6 +44,15 @@ export const Blog: React.FC<Props> = ({
     };
   }, []);
 
+  useEffect(() => {
+    if (markdownPath) {
+      fetch(markdownPath)
+        .then((response) => response.text())
+        .then((text) => setMarkdownContent(text))
+        .catch((error) => console.error("Error loading markdown:", error));
+    }
+  }, [markdownPath]);
+
   return (
     <div className="flex flex-col">
       <div className="article-header">
@@ -53,7 +66,15 @@ export const Blog: React.FC<Props> = ({
           <h6>{date}</h6>
         </div>
       </div>
-      <div className="flex flex-col">{content}</div>
+      <div className="flex flex-col">
+        {markdownPath ? (
+          <MarkdownRenderer content={markdownContent} />
+        ) : typeof content === 'string' ? (
+          <MarkdownRenderer content={content} />
+        ) : (
+          content
+        )}
+      </div>
       <button
         onClick={scrollToTop}
         style={{ opacity: showButton ? 1 : 0 }}

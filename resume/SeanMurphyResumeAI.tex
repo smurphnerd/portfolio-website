@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 3.0 (December 17, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	%a4paper, % Uncomment for A4 paper size (default is US letter)
+	10pt, % Default font size, can use 10pt, 11pt or 12pt
+]{resume} % Use the resume class
+
+\usepackage{ebgaramond} % Use the EB Garamond font
+\usepackage[hidelinks]{hyperref} % For hyperlinks
+\usepackage{fontawesome} % For icons
+\let\orighref\href
+\renewcommand{\href}[2]{\orighref{#1}{#2\,\faExternalLink}}
+
+%------------------------------------------------
+
+\name{Sean Murphy} % Your name to appear at the top
+
+% You can use the \address command up to 3 times for 3 different addresses or pieces of contact information
+% Any new lines (\\) you use in the \address commands will be converted to symbols, so each address will appear as a single line.
+
+% \address{smurphnerd.com} % Main address
+
+% \address{123 Pleasant Lane \\ City, State 12345} % A secondary address (optional)
+
+\address{0468~$\cdot$~340~$\cdot$~941 \\ sean.murphy@monash.edu} % Contact information
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+	\textbf{Monash University} \hfill \textit{December 2025} \\
+	Master of Artificial Intelligence \\
+	GPA: 4.0 \\
+    Academic Medal for Excellence in Graduate Coursework Study \\
+    2024 Dean's Achievement Award Recipient \\
+	First Place in FIT5215 Deep Learning Kaggle Competition \\
+    First Place in FIT5222 Flatland and Pacman Competitions
+
+	\textbf{Swinburne University of Technology} \hfill \textit{December 2023} \\
+	B.S. in Accounting and Business IT \\
+	Vice Chancellor's Scholarship Recipient
+	% Overall GPA: 3.107 \\
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Experience}
+
+	\begin{rSubsection}{Research Engineer}{July 2025 - Present}{ActionLab, Monash University}{Melbourne, VIC}
+        \item Developed and deployed full-stack, human-centric applications using TypeScript for cohesive front and back-end performance.
+        \item Built a RAG pipeline utilizing Python to integrate and surface contextually relevant research insights within applications.
+        \item Translated interdisciplinary research requirements into technical specifications, ensuring high-quality software solutions for academic programs.
+	\end{rSubsection}
+
+	%------------------------------------------------
+
+	% \begin{rSubsection}{AiLECS Researcher}{February 2025 - Present}{Monash University}{Melbourne, VIC}
+	% 	\item Conducting research in AI interpretability methods, focusing on making deep learning models more transparent and understandable.
+	% 	\item Performing comprehensive literature reviews and prototyping potential solutions for neural network analysis.
+	% 	\item Contributing to research planning and methodology development for upcoming implementations in model interpretability.
+	% \end{rSubsection}
+
+	%------------------------------------------------
+
+	% \begin{rSubsection}{Lead Developer}{November 2022 - Present}{iLearn Education}{Melbourne, VIC}
+	% 	\item Leading a team of 3 developers in designing, building, and deploying full-stack solutions for an educational platform.
+	% 	\item Collaborating closely with clients to gather and refine business requirements, translating them into detailed technical specifications for development.
+	% 	\item Researching and implemented emerging technologies, tools and frameworks for use in the platform.
+	% 	\item Maintaining documentation to keep development aligned with project goals, ensuring seamless onboarding and knowledge transfer.
+	% \end{rSubsection}
+
+	%------------------------------------------------
+
+	\begin{rSubsection}{Software Developer}{January 2023 - December 2023}{SeventhBeam}{Fitzroy, VIC}
+		\item Developed dynamic mobile and web applications with Flutter, Firebase, and React, enhancing user interactivity and platform performance.
+		\item Engineered robust backend services using Golang and PostgreSQL, ensuring scalability and efficient data management for mobile and web applications.
+		\item Set up automated CI/CD pipelines to streamline the development process, integrating tools for testing, building, and deployment.
+		% \item Collaborated in an agile development team, participating in sprints and cross-functional collaboration to deliver high-quality software solutions.
+    \end{rSubsection}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Projects}
+
+    \begin{rSubsection}{Minor Thesis}{January 2025 - December 2025}{AiLecs, Monash University}{}
+        \item Conducted a comprehensive literature review on AI Interpretability, focusing on methods for increasing the transparency of deep learning models.
+        \item Developed a novel approach using gradient descent and a multi-objective genetic algorithm to identify task-specific subnetworks within ViTs.
+        \item Demonstrated that pruning unnecessary components in ViTs improves performance and reduces complexity for specific downstream tasks.
+    \end{rSubsection}
+
+    \begin{rSubsection}{Pacman Capture the Flag Challenge}{November 2025}{FIT5222}{}
+        \item Developed a high-performing pacman agent by engineering a novel, context-aware heuristic for movement and strategic decision-making.
+        \item Secured first place in the cohort tournament, demonstrating superior agent design and real-time adversarial planning.
+    \end{rSubsection}
+
+    \begin{rSubsection}{Flatland Challenge}{September 2025}{FIT5222}{}
+        \item Designed and implemented a Multi-Agent Path Finding solution combining Large Neighborhood Search and a SIPPS planner.
+        \item Achieved first place in the cohort for path planning efficiency, surpassing the performance of advanced staff implementations.
+    \end{rSubsection}
+
+	% \begin{rSubsection}{Multiagent Reinforcement Learning Pathfinding}{October 2024}{FIT5226}{}
+	% 	\item Wrote a Python implementation of a multiagent reinforcement learning algorithm for pathfinding using a Deep Q-Network (DQN).
+	% 	\item Developed visualizations to demonstrate the algorithm's performance in a gridworld environment, showcasing the agents' ability to learn optimal paths.
+	% 	\item Achieved 100\% on all evaluation metrics given by the task description.
+	% \end{rSubsection}
+
+	%------------------------------------------------
+
+	\begin{rSubsection}{Image Classification Kaggle Competition}{September 2024}{FIT5215}{}
+		\item Used PyTorch and Transformers to develop various deep learning models for image classification, achieving 100\% accuracy on the test set.
+		\item Researched and implemented state-of-the-art techniques in image classification, including transfer learning, data augmentation, and ensemble modeling.
+	\end{rSubsection}
+
+	%------------------------------------------------
+
+	% \begin{rSubsection}{\href{https://ilearneducation.com.au/}{iLearn Education Platform}}{February 2023 - Present}{iLearn Education}{}
+	% 	\item Designed and implemented the backend architecture for an online learning platform using Golang and PostgreSQL.
+	% 	% \item Developed an admin dashboard using NextJS, enabling teachers to manage courses and students.
+	% 	\item Developed an admin dashboard using NextJS, equipping teachers with tools to manage courses, track student progress, and administrative tasks.
+	% \end{rSubsection}
+
+	%------------------------------------------------
+
+	% \begin{rSubsection}{\href{https://www.smurphnerd.com/projects/why-leave-town}{Why Leave Town Admin Console}}{October - December 2023}{Why Leave Town}{}
+	% 	\item Built a user-friendly platform for businesses to manage and administer gift card programs, simplifying operations and enhancing customer engagement.
+	% 	\item Implemented a RESTful API for seamless backend communication and integrated it with a responsive React frontend to ensure efficient data handling and user experience.
+	% 	\item Created design patterns in a new codebase to ensure maintainability and scalability.
+	% \end{rSubsection}
+
+	%------------------------------------------------
+
+	% \begin{rSubsection}{\href{https://www.smurphnerd.com/projects/vodalogic}{Vodalogic}}{June - October 2023}{Vodalogic}{}
+	% 	\item Led the frontend development of an application for managing IoT devices, ensuring a responsive and intuitive user interface.
+	% 	\item Collaborated on the implementation of a hybrid REST and GraphQL API to optimize data retrieval for the frontend.
+	% 	\item Managed the deployment of the app to the Google Play Store and Apple App Store.
+	% \end{rSubsection}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS AND INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Skills \& Interests}
+
+	\begin{tabular}{@{} >{\bfseries}l @{\hspace{6ex}} l @{}}
+		Computer Languages & Python, Golang, SQL, LaTeX, Shell, Typescript \\ % AI
+		Software           & PyTorch, Scikit-learn, Transformers, Docker   \\
+		Tools              & Neovim, Jupyter Lab, Git, GitHub              \\
+		Interests          & Tetris, Rubik's Cube, Brazilian Jiu-Jitsu, Fitness \\
+	\end{tabular}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EXAMPLE SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{Section Name}
+
+%Section content\ldots
+
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

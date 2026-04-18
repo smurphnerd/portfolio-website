@@ -56,6 +56,37 @@
   top: 45px;
 }
 
+.socials {
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.social {
+  list-style: none;
+
+  a {
+    color: $body-quiet-color;
+    font-size: 26px;
+    display: inline-flex;
+    transition:
+      color 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+
+    &:hover {
+      color: $link-hover-color;
+      transform: translateY(-3px);
+    }
+  }
+}
+
 .toggleButton {
   display: none;
 }
@@ -106,6 +137,17 @@
         stroke: $link-hover-color;
       }
     }
+  }
+}
+
+@media (max-width: $hiddenNavbarWidth) {
+  .socials {
+    bottom: 30px;
+    gap: 32px;
+  }
+
+  .social a {
+    font-size: 30px;
   }
 }
 
