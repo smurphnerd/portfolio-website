@@ -30,6 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:resume": "mkdir -p public/resume && cd resume && latexmk -pdf -outdir=../public/resume *.tex",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

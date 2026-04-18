@@ -92,7 +92,7 @@ const Navbar: React.FC = () => {
               icon={<HiOutlineMail />}
             />
             <SocialLink
-              href="/SeanMurphyResumeAI.pdf"
+              href="/resume/SeanMurphyResumeAI.pdf"
               label="Resume"
               icon={<HiOutlineDocumentText />}
             />
