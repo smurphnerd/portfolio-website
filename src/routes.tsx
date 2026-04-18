@@ -48,6 +48,7 @@ export const router = createBrowserRouter(
                     about={project.about}
                     techSheet={project.techSheet}
                     resources={project.resources}
+                    markdownPath={project.markdownPath}
                     otherProjects={{
                       previous: Projects[previousIndex].route,
                       next: Projects[nextIndex].route,
@@ -75,6 +76,7 @@ export const router = createBrowserRouter(
                   thumbnail={post.thumbnail}
                   content={post.content}
                   route={post.route}
+                  markdownPath={post.markdownPath}
                 />
               </>
             }

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { FaGithub } from "react-icons/fa";
 import { GrClose, GrMenu } from "react-icons/gr";
+import { HiOutlineMail } from "react-icons/hi";
+import { HiOutlineDocumentText } from "react-icons/hi2";
 import { Link, useLocation } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { ReactComponent as SmLogo } from "../assets/sm-logo.svg";
@@ -77,6 +80,24 @@ const Navbar: React.FC = () => {
               </ul>
             }
           />
+          <ul className={S.socials}>
+            <SocialLink
+              href="https://github.com/smurphnerd"
+              label="GitHub"
+              icon={<FaGithub />}
+            />
+            <SocialLink
+              href="mailto:sean.murphy@monash.edu"
+              label="Email"
+              icon={<HiOutlineMail />}
+            />
+            <SocialLink
+              href="/SeanMurphyResumeAI.pdf"
+              label="Resume"
+              icon={<HiOutlineDocumentText />}
+              download
+            />
+          </ul>
         </nav>
       </CSSTransition>
     </>
@@ -104,5 +125,32 @@ const NavLink: React.FC<NavLinkProps> = ({ linkTitle, routeName, onClick }) => {
     </li>
   );
 };
+
+interface SocialLinkProps {
+  href: string;
+  label: string;
+  icon: React.ReactNode;
+  download?: boolean;
+}
+
+const SocialLink: React.FC<SocialLinkProps> = ({
+  href,
+  label,
+  icon,
+  download,
+}) => (
+  <li className={S.social}>
+    <a
+      href={href}
+      aria-label={label}
+      title={label}
+      target={download ? undefined : "_blank"}
+      rel="noopener noreferrer"
+      {...(download ? { download: true } : {})}
+    >
+      {icon}
+    </a>
+  </li>
+);
 
 export default Navbar;

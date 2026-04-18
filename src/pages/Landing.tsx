@@ -8,13 +8,13 @@ const Landing: React.FC = () => {
     <>
       <div className={S.section}>
         <Helmet>
-          <title>Welcome</title>
+          <title>Sean Murphy</title>
         </Helmet>
         <div className={S.messageSection}>
           <HtmlTags
             tagType="h1"
             children={
-              <h1 className={S.title}>Welcome, my name is Sean Murphy...</h1>
+              <h1 className={S.title}>Hello, my name is Sean Murphy...</h1>
             }
           />
         </div>

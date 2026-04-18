@@ -3,6 +3,7 @@ interface Props {
   text: string;
   leadingSpace?: boolean;
   afterSpace?: boolean;
+  download?: boolean | string;
 }
 
 export const InTextAnchor: React.FC<Props> = ({
@@ -10,13 +11,16 @@ export const InTextAnchor: React.FC<Props> = ({
   text,
   leadingSpace = true,
   afterSpace = true,
+  download,
 }: Props) => (
   <>
     {leadingSpace && <>&nbsp;</>}
     <a
       className="hover:text-linkHoverColor cursor-pointer font-bold"
       href={href}
-      target="blank"
+      target="_blank"
+      rel="noreferrer"
+      download={download}
     >
       {text}
     </a>

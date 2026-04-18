@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import S from "./Project.module.scss";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
+import { MarkdownRenderer } from "./MarkdownRenderer";
 
 interface OtherProjectsProps {
   previous: string;
@@ -17,6 +18,7 @@ interface Props {
   techSheet?: string[];
   resources?: JSX.Element[];
   otherProjects: OtherProjectsProps;
+  markdownPath?: string;
 }
 
 const Project: React.FC<Props> = ({
@@ -29,7 +31,19 @@ const Project: React.FC<Props> = ({
   techSheet,
   resources,
   otherProjects,
+  markdownPath,
 }) => {
+  const [markdownContent, setMarkdownContent] = useState<string>("");
+
+  useEffect(() => {
+    if (markdownPath) {
+      fetch(markdownPath)
+        .then((response) => response.text())
+        .then((text) => setMarkdownContent(text))
+        .catch((error) => console.error("Error loading markdown:", error));
+    }
+  }, [markdownPath]);
+
   return (
     <>
       <div className={S.content}>
@@ -46,33 +60,39 @@ const Project: React.FC<Props> = ({
           </div>
         </div>
         {demo && <img className={S.demo} src={demo} alt={`${title} demo`} />}
-        {about && (
-          <div className={S.sectionBody}>
-            <ProjectHeader header="About this project" />
-            {about}
-          </div>
-        )}
-        {techSheet && (
+        {markdownPath ? (
+          <MarkdownRenderer content={markdownContent} />
+        ) : (
           <>
-            <ProjectHeader
-              header="Technology Sheet"
-              description="Languages, frameworks, and tools used in this project"
-            />
-            <ul>
-              {techSheet.map((technology, key) => {
-                return <li key={key}>{technology}</li>;
-              })}
-            </ul>
-          </>
-        )}
-        {resources && (
-          <>
-            <ProjectHeader header="Resources" />
-            <ul>
-              {resources.map((resource, key) => {
-                return <li key={key}>{resource}</li>;
-              })}
-            </ul>
+            {about && (
+              <div className={S.sectionBody}>
+                <ProjectHeader header="About this project" />
+                {about}
+              </div>
+            )}
+            {techSheet && (
+              <>
+                <ProjectHeader
+                  header="Technology Sheet"
+                  description="Languages, frameworks, and tools used in this project"
+                />
+                <ul>
+                  {techSheet.map((technology, key) => {
+                    return <li key={key}>{technology}</li>;
+                  })}
+                </ul>
+              </>
+            )}
+            {resources && (
+              <>
+                <ProjectHeader header="Resources" />
+                <ul>
+                  {resources.map((resource, key) => {
+                    return <li key={key}>{resource}</li>;
+                  })}
+                </ul>
+              </>
+            )}
           </>
         )}
       </div>
