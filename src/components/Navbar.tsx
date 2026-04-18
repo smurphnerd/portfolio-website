@@ -95,7 +95,6 @@ const Navbar: React.FC = () => {
               href="/SeanMurphyResumeAI.pdf"
               label="Resume"
               icon={<HiOutlineDocumentText />}
-              download
             />
           </ul>
         </nav>

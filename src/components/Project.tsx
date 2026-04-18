@@ -4,8 +4,8 @@ import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 import { MarkdownRenderer } from "./MarkdownRenderer";
 
 interface OtherProjectsProps {
-  previous: string;
-  next: string;
+  previous?: string;
+  next?: string;
 }
 
 interface Props {
@@ -97,14 +97,18 @@ const Project: React.FC<Props> = ({
         )}
       </div>
       <div className={S.footer}>
-        <a href={`/projects/${otherProjects.previous}`}>
-          <HiArrowLeft />
-          <p>Previous Project</p>
-        </a>
-        <a href={`/projects/${otherProjects.next}`}>
-          <p>Next Project</p>
-          <HiArrowRight />
-        </a>
+        {otherProjects.previous && (
+          <a href={`/projects/${otherProjects.previous}`}>
+            <HiArrowLeft />
+            <p>Previous Project</p>
+          </a>
+        )}
+        {otherProjects.next && (
+          <a href={`/projects/${otherProjects.next}`}>
+            <p>Next Project</p>
+            <HiArrowRight />
+          </a>
+        )}
       </div>
     </>
   );

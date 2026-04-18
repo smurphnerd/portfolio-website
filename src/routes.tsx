@@ -27,8 +27,8 @@ export const router = createBrowserRouter(
       </Route>
       <Route path="projects" element={<ArticleLayout link="/projects" />}>
         {Projects.map((project, index) => {
-          const previousIndex = (index - 1 + Projects.length) % Projects.length;
-          const nextIndex = (index + 1) % Projects.length;
+          const hasNext = index > 0;
+          const hasPrevious = index < Projects.length - 1;
 
           return (
             <Route
@@ -50,8 +50,8 @@ export const router = createBrowserRouter(
                     resources={project.resources}
                     markdownPath={project.markdownPath}
                     otherProjects={{
-                      previous: Projects[previousIndex].route,
-                      next: Projects[nextIndex].route,
+                      previous: hasPrevious ? Projects[index + 1].route : undefined,
+                      next: hasNext ? Projects[index - 1].route : undefined,
                     }}
                   />
                 </>
