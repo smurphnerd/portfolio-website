@@ -8,7 +8,7 @@ Source for [smurphnerd.com](https://smurphnerd.com) — my personal portfolio, p
 - React Router v6 for routing
 - Tailwind CSS + SCSS modules for styling
 - `react-markdown` + `remark-gfm` for rendering long-form content
-- Supabase for blog comments
+- PocketBase (self-hosted) for blog comments
 - LaTeX (`latexmk`) for the resume PDFs
 
 ## Getting started
@@ -18,38 +18,27 @@ npm install
 npm start            # http://localhost:3000
 ```
 
-Copy `.env.local` and set the Supabase credentials used by the comments section:
+Copy `.env.local` and set the environment variables used by the comments section:
 
 ```
-REACT_APP_SUPABASE_URL=...
-REACT_APP_SUPABASE_ANON_KEY=...
+REACT_APP_POCKETBASE_URL=https://db.smurphnerd.com
 REACT_APP_TURNSTILE_SITE_KEY=...
 REACT_APP_COMMENTS_ENABLED=true   # omit or set to anything else to hide the comment UI entirely
 ```
 
 ## Comments
 
-Comments are gated behind `REACT_APP_COMMENTS_ENABLED`. When the flag is anything other than `"true"` (or unset), the comment section isn't rendered and Supabase/Turnstile aren't contacted — useful while a backend is down or being migrated.
+Comments are gated behind `REACT_APP_COMMENTS_ENABLED`. When the flag is anything other than `"true"` (or unset), the comment section isn't rendered and PocketBase/Turnstile aren't contacted — useful while a backend is down or being migrated.
 
-When enabled, comments go through a Supabase Edge Function (`supabase/functions/post-comment`) that verifies a [Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/) token before inserting. RLS on `blog_comments` blocks direct anon writes, so the function is the only path to create a comment.
+When enabled, comments go through a custom PocketBase route (`POST /api/post-comment`) implemented as a JS hook (`pb_hooks/post-comment.pb.js` on the server). The hook verifies a [Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/) token before inserting. The `blog_comments` collection's API rules allow anonymous `List`/`View` but block direct `Create` — the hook is the only path to write a comment.
 
-One-time setup:
+Backend setup (one-time, already done on the server):
 
 1. Create a Turnstile site for `smurphnerd.com` in the Cloudflare dashboard. Copy the site key into `REACT_APP_TURNSTILE_SITE_KEY` (client env) and production host env vars.
-2. Store the secret key in Supabase:
-   ```bash
-   supabase secrets set TURNSTILE_SECRET_KEY=<secret>
-   ```
-3. Apply the RLS migration to production:
-   ```bash
-   supabase db push          # or run supabase/migrations/20260418_lock_blog_comments_rls.sql in the SQL editor
-   ```
-4. Deploy the edge function:
-   ```bash
-   supabase functions deploy post-comment
-   ```
+2. On the PocketBase server, set the secret key in the environment (e.g. add `Environment=TURNSTILE_SECRET_KEY=...` to `/etc/systemd/system/pocketbase.service`) and restart PocketBase.
+3. The `blog_comments` collection and the `post-comment` hook are already provisioned. Schema: `author_name`, `author_organization`, `comment`, `blog_route`.
 
-After this, direct `insert` calls from the anon key return an RLS error; only the edge function (running with the service role) can write comments.
+After this, direct `create` calls to the collection are rejected; only the hook path can write.
 
 ## Scripts
 
@@ -77,7 +66,7 @@ src/
     projects/                One file per project; index.ts aggregates them
   assets/                    Icons, thumbnails, demo images
   styles/                    Page-level SCSS modules and shared styles
-  utils/                     `supabase` client and `timeAgo` formatter
+  utils/                     `pocketbase` client and `timeAgo` formatter
 ```
 
 ## Adding content
