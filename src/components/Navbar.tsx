@@ -6,35 +6,20 @@ import { HiOutlineDocumentText } from "react-icons/hi2";
 import { Link, useLocation } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { ReactComponent as SmLogo } from "../assets/sm-logo.svg";
+import { useIsDesktop } from "../utils/useIsDesktop";
 import S from "./Navbar.module.scss";
 import HtmlTags from "./HtmlTags";
 
 const Navbar: React.FC = () => {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [navbarOpen, setNavbarOpen] = useState<boolean>(
-    windowWidth <= 1200 ? true : false,
-  );
+  const isDesktop = useIsDesktop();
+  const [navbarOpen, setNavbarOpen] = useState<boolean>(isDesktop);
 
   useEffect(() => {
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
-    return () => {
-      window.removeEventListener("resize", () =>
-        setWindowWidth(window.innerWidth),
-      );
-    };
-  }, []);
+    setNavbarOpen(isDesktop);
+  }, [isDesktop]);
 
-  useEffect(() => {
-    if (windowWidth > 1200) {
-      setNavbarOpen(true);
-    } else {
-      setNavbarOpen(false);
-    }
-  }, [windowWidth]);
-
-  // Reset condition to its original state
   const handleLinkClick = () => {
-    windowWidth > 1200 ? setNavbarOpen(true) : setNavbarOpen(false);
+    setNavbarOpen(isDesktop);
   };
 
   return (
@@ -49,8 +34,8 @@ const Navbar: React.FC = () => {
 
       <CSSTransition
         in={navbarOpen}
-        timeout={windowWidth <= 1200 ? 200 : 0}
-        classNames={windowWidth <= 1200 ? "navFade" : ""}
+        timeout={isDesktop ? 0 : 200}
+        classNames={isDesktop ? "" : "navFade"}
       >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>
@@ -129,23 +114,16 @@ interface SocialLinkProps {
   href: string;
   label: string;
   icon: React.ReactNode;
-  download?: boolean;
 }
 
-const SocialLink: React.FC<SocialLinkProps> = ({
-  href,
-  label,
-  icon,
-  download,
-}) => (
+const SocialLink: React.FC<SocialLinkProps> = ({ href, label, icon }) => (
   <li className={S.social}>
     <a
       href={href}
       aria-label={label}
       title={label}
-      target={download ? undefined : "_blank"}
+      target="_blank"
       rel="noopener noreferrer"
-      {...(download ? { download: true } : {})}
     >
       {icon}
     </a>

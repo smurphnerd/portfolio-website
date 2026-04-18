@@ -76,7 +76,7 @@ const PacmanCTF: Project = {
     </>,
   ],
   languages: [PythonIcon],
-  date: "October 2025",
+  date: "November 2025",
 };
 
 export default PacmanCTF;

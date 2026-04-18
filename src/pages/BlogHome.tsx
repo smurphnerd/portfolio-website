@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import S from "../styles/Blog.module.scss";
 import { Helmet } from "react-helmet";
 import HtmlTags from "../components/HtmlTags";
 import { BlogCard } from "../components/BlogCard";
+import { useIsDesktop } from "../utils/useIsDesktop";
 import BlogPosts from "./blogs";
 
 const BlogHome: React.FC = () => {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [hideTags, setHideTags] = useState<Boolean>(false);
-
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    windowWidth <= 1200 ? setHideTags(true) : setHideTags(false);
-  }, [windowWidth]);
+  const hideTags = !useIsDesktop();
 
   return (
     <div className={S.section}>

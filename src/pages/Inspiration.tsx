@@ -11,28 +11,15 @@ interface QuoteEntry {
 const quotes = quotesData as QuoteEntry[];
 
 const Inspiration: React.FC = () => {
-  const today = new Date(Date.now());
-  const quoteIndex = Math.floor(Date.now() / 86400000) % quotes.length;
+  const today = new Date();
+  const quoteIndex = Math.floor(today.getTime() / 86400000) % quotes.length;
   const quote = quotes[quoteIndex];
 
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  const date = `${
-    months[today.getMonth()]
-  } ${today.getDate()}, ${today.getFullYear()}`;
+  const date = today.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <>

@@ -74,7 +74,7 @@ const FlatlandChallenge: Project = {
     </>,
   ],
   languages: [PythonIcon],
-  date: "May 2025",
+  date: "September 2025",
 };
 
 export default FlatlandChallenge;

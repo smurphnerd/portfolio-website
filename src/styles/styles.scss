@@ -54,11 +54,13 @@
   display: none;
 }
 
-.long-fade-enter {
+.long-fade-enter,
+.long-fade-appear {
   opacity: 0;
 }
 
-.long-fade-enter-active {
+.long-fade-enter-active,
+.long-fade-appear-active {
   opacity: 1;
   transition: opacity 1000ms ease-in-out;
 }

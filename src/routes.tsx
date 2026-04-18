@@ -1,93 +1,39 @@
+import { lazy, Suspense } from "react";
 import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Inspiration from "./pages/Inspiration";
 import Landing from "./pages/Landing";
 import MainTemplate from "./pages/MainTemplate";
 import Root from "./pages/Root";
 import { ArticleLayout } from "./pages/ArticleLayout";
-import { BlogPosts } from "./pages/blogs";
-import { Helmet } from "react-helmet";
-import BlogHome from "./pages/BlogHome";
-import { Blog } from "./components/Blog";
-import { Projects } from "./pages/projects";
-import Project from "./components/Project";
-import ProjectsHome from "./pages/ProjectsHome";
+
+const Inspiration = lazy(() => import("./pages/Inspiration"));
+const BlogHome = lazy(() => import("./pages/BlogHome"));
+const ProjectsHome = lazy(() => import("./pages/ProjectsHome"));
+const ProjectRoute = lazy(() => import("./pages/ProjectRoute"));
+const BlogRoute = lazy(() => import("./pages/BlogRoute"));
+
+const lazyRoute = (element: React.ReactNode) => (
+  <Suspense fallback={null}>{element}</Suspense>
+);
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route path="/" element={<MainTemplate />}>
         <Route path="/" element={<Landing />} />
-        <Route path="projects" element={<ProjectsHome />} />
-        <Route path="inspiration" element={<Inspiration />} />
-        <Route path="blog" element={<BlogHome />} />
+        <Route path="projects" element={lazyRoute(<ProjectsHome />)} />
+        <Route path="inspiration" element={lazyRoute(<Inspiration />)} />
+        <Route path="blog" element={lazyRoute(<BlogHome />)} />
       </Route>
       <Route path="projects" element={<ArticleLayout link="/projects" />}>
-        {Projects.map((project, index) => {
-          const hasNext = index > 0;
-          const hasPrevious = index < Projects.length - 1;
-
-          return (
-            <Route
-              key={project.route}
-              path={project.route}
-              element={
-                <>
-                  <Helmet>
-                    <title>{project.title}</title>
-                  </Helmet>
-                  <Project
-                    thumbnail={project.thumbnail}
-                    title={project.title}
-                    client={project.client}
-                    blurb={project.blurb}
-                    demo={project.demo}
-                    about={project.about}
-                    techSheet={project.techSheet}
-                    resources={project.resources}
-                    markdownPath={project.markdownPath}
-                    otherProjects={{
-                      previous: hasPrevious ? Projects[index + 1].route : undefined,
-                      next: hasNext ? Projects[index - 1].route : undefined,
-                    }}
-                  />
-                </>
-              }
-            />
-          );
-        })}
+        <Route path=":slug" element={lazyRoute(<ProjectRoute />)} />
       </Route>
       <Route path="blog" element={<ArticleLayout link="/blog" />}>
-        {BlogPosts.map((post) => (
-          <Route
-            key={post.route}
-            path={post.route}
-            element={
-              <>
-                <Helmet>
-                  <title>{post.title}</title>
-                </Helmet>
-                <Blog
-                  title={post.title}
-                  date={post.date}
-                  thumbnail={post.thumbnail}
-                  content={post.content}
-                  route={post.route}
-                  markdownPath={post.markdownPath}
-                />
-              </>
-            }
-          />
-        ))}
+        <Route path=":slug" element={lazyRoute(<BlogRoute />)} />
       </Route>
     </Route>,
   ),
 );
-
-// <Route path="butterfly-effect" element={<ButterflyEffect />} />
-// <Route path="ilearn" element={<ILearn />}></Route>
-// <Route path="vault" element={<Vault />}></Route>
-// <Route path="vodalogic" element={<Vodalogic />}></Route>
