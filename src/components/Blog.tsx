@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { HiArrowUp } from "react-icons/hi";
 import { timeAgo } from "../utils/format";
-import { supabase } from "../utils/supabase";
+import { pb, POCKETBASE_URL } from "../utils/pocketbase";
 import { loadTurnstile, TURNSTILE_SITE_KEY } from "../utils/turnstile";
 import { useMarkdown } from "../utils/useMarkdown";
 import S from "./Blog.module.scss";
@@ -89,16 +89,23 @@ const CommentSection: React.FC<{ route: string }> = ({ route }) => {
   const tokenRef = useRef<string | null>(null);
 
   const getComments = useCallback(async () => {
-    const { data, error } = await supabase
-      .from("blog_comments")
-      .select("*")
-      .eq("blog_route", route)
-      .order("created_at", { ascending: false });
-
-    if (error) {
-      console.error("Error fetching comments:", error.message);
-    } else {
-      setComments(data as Comment[]);
+    try {
+      const result = await pb.collection("blog_comments").getList<Comment>(
+        1,
+        200,
+        {
+          filter: `blog_route = "${route.replace(/"/g, '\\"')}"`,
+          sort: "-created",
+        },
+      );
+      // Map PocketBase's `created` to `created_at` for display compat
+      const mapped = result.items.map((item: any) => ({
+        ...item,
+        created_at: item.created_at ?? item.created,
+      }));
+      setComments(mapped as Comment[]);
+    } catch (error: any) {
+      console.error("Error fetching comments:", error?.message ?? error);
     }
   }, [route]);
 
@@ -161,16 +168,27 @@ const CommentSection: React.FC<{ route: string }> = ({ route }) => {
     setSubmitting(true);
     setErrorMsg(null);
 
-    const { error } = await supabase.functions.invoke("post-comment", {
-      body: {
-        author_name,
-        author_organization,
-        comment,
-        blog_route: route,
-        turnstile_token: token,
-        website,
-      },
-    });
+    let error: Error | null = null;
+    try {
+      const res = await fetch(`${POCKETBASE_URL}/api/post-comment`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          author_name,
+          author_organization,
+          comment,
+          blog_route: route,
+          turnstile_token: token,
+          website,
+        }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        error = new Error(body?.error ?? `http_${res.status}`);
+      }
+    } catch (err: any) {
+      error = err instanceof Error ? err : new Error(String(err));
+    }
 
     tokenRef.current = null;
     if (widgetIdRef.current && window.turnstile) {
