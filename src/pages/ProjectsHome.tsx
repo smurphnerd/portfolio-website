@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import HtmlTags from "../components/HtmlTags";
 import ProjectCard from "../components/ProjectCard";
 import S from "../styles/Projects.module.scss";
 import { Helmet } from "react-helmet";
+import { useIsDesktop } from "../utils/useIsDesktop";
 import { Projects } from "./projects";
 
 const ProjectsHome: React.FC = () => {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [hideTags, setHideTags] = useState<Boolean>(false);
-
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    windowWidth <= 1200 ? setHideTags(true) : setHideTags(false);
-  }, [windowWidth]);
+  const hideTags = !useIsDesktop();
 
   return (
     <div className={S.section}>

@@ -3,8 +3,8 @@ import S from "./HtmlTags.module.scss";
 
 interface Props {
   tagType: string;
-  inheritSize?: Boolean;
-  hideTags?: Boolean;
+  inheritSize?: boolean;
+  hideTags?: boolean;
   children: ReactNode;
 }
 

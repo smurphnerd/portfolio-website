@@ -11,7 +11,6 @@ import smBackground from "./assets/sm-background.png";
 import smLogo from "./assets/sm-logo.svg";
 
 type ImagePromise = Promise<Event>;
-// Creates a new promise that resolves on image onload
 const loadImage = (src: string): ImagePromise => {
     return new Promise((resolve) => {
         const img = new Image();

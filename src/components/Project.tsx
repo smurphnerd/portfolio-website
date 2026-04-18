@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import S from "./Project.module.scss";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
+import { useMarkdown } from "../utils/useMarkdown";
 import { MarkdownRenderer } from "./MarkdownRenderer";
 
 interface OtherProjectsProps {
@@ -33,16 +34,7 @@ const Project: React.FC<Props> = ({
   otherProjects,
   markdownPath,
 }) => {
-  const [markdownContent, setMarkdownContent] = useState<string>("");
-
-  useEffect(() => {
-    if (markdownPath) {
-      fetch(markdownPath)
-        .then((response) => response.text())
-        .then((text) => setMarkdownContent(text))
-        .catch((error) => console.error("Error loading markdown:", error));
-    }
-  }, [markdownPath]);
+  const markdownContent = useMarkdown(markdownPath);
 
   return (
     <>

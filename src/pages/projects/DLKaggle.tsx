@@ -61,7 +61,7 @@ const DLKaggle: Project = {
       </p>
     </>
   ),
-  techSheet: ["Python", "Hugging Face", "Pytorch"],
+  techSheet: ["Python", "Pytorch", "Hugging Face"],
   resources: [
     <>
       View the leaderboard on
@@ -71,7 +71,7 @@ const DLKaggle: Project = {
       />
     </>,
   ],
-  languages: [PythonIcon, HuggingFaceIcon, PytorchIcon],
+  languages: [PythonIcon, PytorchIcon, HuggingFaceIcon],
   date: "September 2024",
 };
 
