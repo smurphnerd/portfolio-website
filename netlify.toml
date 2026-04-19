@@ -1,0 +1,5 @@
+[build.environment]
+  # The PocketBase URL is baked into the client JS bundle by CRA (REACT_APP_*
+  # vars are public by design) and is the endpoint the browser connects to —
+  # it is not a secret. Exempt it from Netlify's secret scanner.
+  SECRETS_SCAN_OMIT_KEYS = "REACT_APP_POCKETBASE_URL"
