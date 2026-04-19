@@ -36,6 +36,8 @@ const Navbar: React.FC = () => {
         in={navbarOpen}
         timeout={isDesktop ? 0 : 200}
         classNames={isDesktop ? "" : "navFade"}
+        mountOnEnter
+        unmountOnExit
       >
         <nav className={S.Navbar}>
           <span className={S.logoContainer}>

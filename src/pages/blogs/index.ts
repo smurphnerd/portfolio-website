@@ -3,6 +3,7 @@ import {
   LearningMoreByDoingLessThumbnail,
   TheButterflyEffectThumbnail,
   WhyIStartedProgrammingThumbnail,
+  UpdateMyCurrentViewsOnAISafetyThumbnail,
 } from "../../assets/thumbnails";
 
 export type BlogPost = {
@@ -17,10 +18,20 @@ export type BlogPost = {
 
 export const BlogPosts: BlogPost[] = [
   {
+    title: "Update: My Current Views on AI Safety",
+    date: "Sunday 19 April 2026",
+    thumbnail: UpdateMyCurrentViewsOnAISafetyThumbnail,
+    blurb: "An update on my current views on AI safety after two years...",
+    route: "update-my-current-views-on-ai-safety",
+    content: "",
+    markdownPath: "/blog/update-my-current-views-on-ai-safety.md",
+  },
+  {
     title: "Why I'm Scared About The Future Of AI",
     date: "Tuesday 11 June 2024",
     thumbnail: WhyImScaredAboutTheFutureOfAIThumbnail,
-    blurb: "An explanation of some of my key concerns about the future of AI...",
+    blurb:
+      "An explanation of some of my key concerns about the future of AI...",
     route: "why-im-scared-about-the-future-of-ai",
     content: "",
     markdownPath: "/blog/why-im-scared-about-the-future-of-ai.md",
@@ -29,7 +40,8 @@ export const BlogPosts: BlogPost[] = [
     title: "Learning More by Doing Less",
     date: "Monday 20 May 2024",
     thumbnail: LearningMoreByDoingLessThumbnail,
-    blurb: "An overview of my learnings from Coursera's Learning How to Learn by Dr. Barbara Oakley...",
+    blurb:
+      "An overview of my learnings from Coursera's Learning How to Learn by Dr. Barbara Oakley...",
     route: "learning-more-by-doing-less",
     content: "",
     markdownPath: "/blog/learning-more-by-doing-less.md",
@@ -38,7 +50,8 @@ export const BlogPosts: BlogPost[] = [
     title: "The Butterfly Effect",
     date: "Tuesday 2 August 2022",
     thumbnail: TheButterflyEffectThumbnail,
-    blurb: "A bit about my experience in developing my first full stack application from scratch...",
+    blurb:
+      "A bit about my experience in developing my first full stack application from scratch...",
     route: "the-butterfly-effect",
     content: "",
     markdownPath: "/blog/the-butterfly-effect.md",
@@ -47,7 +60,8 @@ export const BlogPosts: BlogPost[] = [
     title: "Why I Started Programming",
     date: "Thursday 16 June 2022",
     thumbnail: WhyIStartedProgrammingThumbnail,
-    blurb: "The origin story of my programming journey. Find out where it all began...",
+    blurb:
+      "The origin story of my programming journey. Find out where it all began...",
     route: "why-i-started-programming",
     content: "",
     markdownPath: "/blog/why-i-started-programming.md",
