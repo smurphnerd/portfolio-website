@@ -11,6 +11,7 @@ import _DLKaggleThumbnail from "./dl-kaggle.png";
 import _FlatlandChallengeThumbnail from "./flatland-challenge.png";
 import _PacmanCTFThumbnail from "./pacman-ctf.png";
 import _SparsityInterpretabilityThumbnail from "./sparsity-interpretability.png";
+import _UpdateMyCurrentViewsOnAISafetyThumbnail from "./update-my-current-views-on-ai-safety.jpg";
 
 export const ButterflyEffectThumbnail = _ButterflyEffectThumbnail;
 export const ILearnThumbnail = _ILearnThumbnail;
@@ -23,6 +24,8 @@ export const LearningMoreByDoingLessThumbnail =
 export const WhyLeaveTownThumbnail = _WhyLeaveTownThumbnail;
 export const WhyImScaredAboutTheFutureOfAIThumbnail =
   _WhyImScaredAboutTheFutureOfAI;
+export const UpdateMyCurrentViewsOnAISafetyThumbnail =
+  _UpdateMyCurrentViewsOnAISafetyThumbnail;
 export const DLKaggleThumbnail = _DLKaggleThumbnail;
 export const FlatlandChallengeThumbnail = _FlatlandChallengeThumbnail;
 export const PacmanCTFThumbnail = _PacmanCTFThumbnail;

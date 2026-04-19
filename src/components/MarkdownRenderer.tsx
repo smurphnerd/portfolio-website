@@ -7,6 +7,7 @@ interface MarkdownRendererProps {
 
 export function MarkdownRenderer({ content }: MarkdownRendererProps) {
   return (
+    <div className="prose prose-invert max-w-none prose-a:text-bodyFg prose-a:font-bold prose-a:no-underline hover:prose-a:text-linkHoverColor prose-blockquote:border-l-linkSelected prose-blockquote:text-bodyQuietColor">
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
@@ -14,13 +15,27 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
           <img
             {...props}
             alt={alt || ''}
-            className="w-full mt-8 mb-4 self-center lg:w-3/4 mx-auto max-h-[600px] object-contain"
+            className="w-full mb-4 self-center lg:w-3/4 mx-auto max-h-[600px] object-contain"
             style={{ display: 'block' }}
           />
         ),
         table: ({ node, ...props }) => (
-          <table {...props} className="w-full mt-8 mb-4 lg:w-3/4 mx-auto" />
+          <table {...props} className="w-full mb-4 lg:w-3/4 mx-auto" />
         ),
+        a: ({ node, href, children, ...props }) => {
+          const isExternal = !!href && /^https?:\/\//.test(href);
+          return (
+            <a
+              {...props}
+              href={href}
+              className="hover:text-linkHoverColor cursor-pointer font-bold"
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noreferrer' : undefined}
+            >
+              {children}
+            </a>
+          );
+        },
         p: ({ node, children, ...props }) => {
           // Check if this paragraph contains only an image + em (caption)
           const hasImage = node?.children?.some(
@@ -41,5 +56,6 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
     >
       {content}
     </ReactMarkdown>
+    </div>
   );
 }
