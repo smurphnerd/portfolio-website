@@ -22,7 +22,7 @@ const BlogHome: React.FC = () => {
           <div className={S.container}>
             <div className={S.content}>
               <h1 className={S.title}>Blogs</h1>
-              {BlogPosts.map((post) => (
+              {BlogPosts.filter((post) => !post.isPrivate).map((post) => (
                 <BlogCard
                   key={post.route}
                   date={post.date}

@@ -4,6 +4,7 @@ import {
   TheButterflyEffectThumbnail,
   WhyIStartedProgrammingThumbnail,
   UpdateMyCurrentViewsOnAISafetyThumbnail,
+  DefiningTheWatermarkingProblemThumbnail,
 } from "../../assets/thumbnails";
 
 export type BlogPost = {
@@ -14,9 +15,20 @@ export type BlogPost = {
   route: string;
   content: string;
   markdownPath?: string;
+  isPrivate?: boolean;
 };
 
 export const BlogPosts: BlogPost[] = [
+  {
+    title: "Defining the Watermarking Problem",
+    date: "Thursday 23 April 2026",
+    thumbnail: DefiningTheWatermarkingProblemThumbnail,
+    blurb: "Defining the watermarking problem...",
+    route: "defining-the-watermarking-problem",
+    content: "",
+    markdownPath: "/blog/defining-the-watermarking-problem.md",
+    isPrivate: true,
+  },
   {
     title: "Update: My Current Views on AI Safety",
     date: "Sunday 19 April 2026",
